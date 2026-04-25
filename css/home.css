@@ -1,0 +1,119 @@
+/*Reset Global*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Cria variáveis*/
+:root {
+    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
+}
+
+/*Cria animação*/
+@keyframes pular {
+    0%{transform: scale(1);}
+    100%{transform: scale(1.2);}
+}
+
+/*estiliza o corpo*/
+body {
+    background-color: white;
+}
+
+/*Estiliza o topo da página*/
+nav {
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+    max-width: 100%;
+    height: 6vh;
+    background-color: blue;
+}
+
+/*Estiliza os links*/
+.linksHeader {
+    display: flex;
+    align-items: center;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold;
+    transition: 0.2s, 0.2s;
+}
+
+/*Ao passar o mouse em cima*/
+.linksHeader:hover {
+    transform: scale(1.1);
+}
+
+/*container da logo*/
+#logoCurso {
+    display: flex;
+    justify-content: center;
+}
+
+/*logo*/
+.logo {
+    background-image: url(/img/eduvaleLogo.png);
+    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    aspect-ratio: 2/1;
+    margin: 10px;
+}
+
+/*estiliza o titulo do tópico*/
+.projeto {
+    display: flex;
+    justify-content: center;
+    font-family: "orbitron", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*imagem dentro do container*/
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+}
+
+/*estiliza fonte do titulo da da seção*/
+#titulo1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*titulo da seção de projetos*/
+#titulo2 {
+    display: block;
+    margin-top: 100px;
+    margin-left: 20px;
+    color: black;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    transition: 0.5s,0.5s;
+}
+
+#titulo2:hover {
+    color: rgb(30, 0, 128);
+}
+
+#lista1 {
+    font-family: 'silkscreen', sans-serif;
+    margin-top: 20px;
+    margin-left: 50px;
+}
