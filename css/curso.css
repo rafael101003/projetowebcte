@@ -1,0 +1,230 @@
+/*Reset Global*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Cria variáveis*/
+:root {
+    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
+}
+
+/*Cria animação*/
+@keyframes pular {
+    0%{transform: scale(1);}
+    100%{transform: scale(1.2);}
+}
+
+body {
+    background-color: white;
+}
+
+/*Estiliza o topo da página*/
+nav {
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+    max-width: 100%;
+    height: 6vh;
+    background-color: blue;
+}
+
+/*Estiliza os links*/
+.linksHeader {
+    display: flex;
+    align-items: center;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold;
+    transition: 0.2s, 0.2s;
+}
+
+/*Ao passar o mouse em cima*/
+.linksHeader:hover {
+    transform: scale(1.1);
+}
+
+/*container da logo*/
+#logoCurso {
+    display: flex;
+    justify-content: center;
+}
+
+/*logo*/
+.logo {
+    background-image: url(/img/eduvaleLogo.png);
+    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    aspect-ratio: 2/1;
+    margin: 10px;
+}
+
+.topico {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: var(--margem);
+    gap: 10px;
+}
+
+.materia {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: var(--margem);
+}
+
+/*está logo á cima da descrição do curso*/
+.ementa {
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#container1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#container2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*imagem dentro do container*/
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    border-radius: 5px;
+}
+
+/*Container da disciplina banco de dados*/
+.bancoDeDados {
+    font-family: arial;
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    padding: 10px; /*Ajusta espaço interno*/
+    margin: var(--margem);
+    border-radius: 15px;
+    word-break: normal; /*Quebra a linha caso a div encolha*/
+    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    border: 1px solid gray;
+    transition: 0.2s;
+}
+
+.bancoDeDados:hover {
+background-color: rgb(229, 229, 229);
+    color: black;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/*final do container banco de dados*/
+
+
+/*Container da disciplina matemática*/
+.matematica {
+    font-family: arial;
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    padding: 10px; /*Ajusta espaço interno*/
+    margin: var(--margem);
+    border-radius: 15px;
+    word-break: normal; /*Quebra a linha caso a div encolha*/
+    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    border: 1px solid gray;
+    transition: 0.2s;
+}
+
+.matematica:hover {
+    background-color: rgb(229, 229, 229);
+    color: black;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/*final do container matemática*/
+
+/*Container da disciplina sistemas de informação*/
+.sistemasDaInformacao {
+    font-family: arial;
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    padding: 10px; /*Ajusta espaço interno*/
+    margin: var(--margem);
+    border-radius: 15px;
+    word-break: normal; /*Quebra a linha caso a div encolha*/
+    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    border: 1px solid gray;
+    transition: 0.2s;
+}
+
+.sistemasDaInformacao:hover {
+    background-color: rgb(229, 229, 229);
+    color: black;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/*final do container sistemas de informação*/
+
+/*Container da disciplina organização de computadores*/
+.organizacaoDeComputadores {
+    font-family: arial;
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    padding: 10px; /*Ajusta espaço interno*/
+    margin: var(--margem);
+    border-radius: 15px;
+    word-break: normal; /*Quebra a linha caso a div encolha*/
+    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    border: 1px solid gray;
+    transition: 0.2s;
+}
+
+.organizacaoDeComputadores:hover {
+    background-color: rgb(229, 229, 229);
+    color: black;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/*final do container organização de computadores*/
+
+/*Container da disciplina aplicações web*/
+.aplicacoesWeb {
+    font-family: arial;
+    min-height: 100px;
+    height: auto;
+    width: 50vh;
+    padding: 10px; /*Ajusta espaço interno*/
+    margin: var(--margem);
+    border-radius: 15px;
+    word-break: normal; /*Quebra a linha caso a div encolha*/
+    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    border: 1px solid gray;
+    transition: 0.2s;
+}
+
+.aplicacoesWeb:hover {
+    background-color: rgb(229, 229, 229);
+    color: black;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/*final do container aplicações web*/
