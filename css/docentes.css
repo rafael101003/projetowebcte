@@ -1,0 +1,65 @@
+/*Reset Global*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Cria variáveis*/
+:root {
+    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
+}
+
+/*Cria animação*/
+@keyframes pular {
+    0%{transform: scale(1);}
+    100%{transform: scale(1.2);}
+}
+
+/*estiliza o corpo*/
+body {
+    background-color: white;
+}
+
+/*Estiliza o topo da página*/
+nav {
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+    max-width: 100%;
+    height: 6vh;
+    background-color: blue;
+}
+
+/*Estiliza os links*/
+.linksHeader {
+    display: flex;
+    align-items: center;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold;
+    transition: 0.2s, 0.2s;
+}
+
+/*Ao passar o mouse em cima*/
+.linksHeader:hover {
+    transform: scale(1.1);
+}
+
+/*container da logo*/
+#logoCurso {
+    display: flex;
+    justify-content: center;
+}
+
+/*logo*/
+.logo {
+    background-image: url(/img/eduvaleLogo.png);
+    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    aspect-ratio: 2/1;
+    margin: 10px;
+}
