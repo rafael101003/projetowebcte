@@ -88,6 +88,16 @@ nav {
     transform: translateY(-5px);/*move o card para cima*/
 }
 
+.info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.docente.ativo .info {
+    max-height: 200px; /* ajusta conforme o conteúdo */
+}
+
 /*estiliza a imagem do professor*/
 .docente img {
     width: 100px;
@@ -124,6 +134,8 @@ nav {
     text-align: center;/*Alinha o texto ao centro em telas menores*/
     }
 }
+
+
 
 
 
