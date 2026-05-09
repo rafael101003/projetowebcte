@@ -9,15 +9,10 @@
     --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
 }
 
-/*Cria animação*/
-@keyframes pular {
-    0%{transform: scale(1);}
-    100%{transform: scale(1.2);}
-}
-
 /*estiliza o corpo*/
 body {
     background-color: white;
+    box-sizing: border-box;
 }
 
 /*Estiliza o topo da página*/
@@ -27,24 +22,44 @@ nav {
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: blue;
+    background-color: #10108e;
 }
 
-/*Estiliza os links*/
+/* Estiliza os links */
 .linksHeader {
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    position: relative; /* Essencial para o posicionamento da linha */
     margin: 2vh;
     color: white;
     text-decoration: none;
     font-family: arial;
     font-weight: bold;
-    transition: 0.2s, 0.2s;
+    /* Animamos a cor e o transform aqui */
+    transition: transform 0.3s ease, color 0.3s ease; 
+    transform-origin: center;
 }
 
-/*Ao passar o mouse em cima*/
+/* Criando a linha (invisível por padrão) */
+.linksHeader::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Distância que você queria */
+    left: 0;
+    width: 0;   /* Começa sem largura para a transição */
+    height: 5px; 
+    background-color: #ffff00;
+    transition: width 0.3s ease; /* Faz a linha "correr" suavemente */
+}
+
+/* Ao passar o mouse no link */
 .linksHeader:hover {
-    transform: scale(1.1);
+    color: #ffffff; /* Opcional: muda a cor do texto também */
+    transform: scale(1.09);
+}
+
+/* Quando o link for hover, a linha (before) cresce */
+.linksHeader:hover::before {
+    width: 100%;
 }
 
 /*container da logo*/
@@ -55,21 +70,23 @@ nav {
 
 /*logo*/
 .logo {
+    display: flex;
     background-image: url(/img/eduvaleLogo.png);
     background-size: contain;   /* Garante que a imagem apareça inteira */
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
     aspect-ratio: 2/1;
     margin: 10px;
 }
 
 /*estiliza o titulo do tópico*/
-.projeto {
-    display: flex;
-    justify-content: center;
+#projetos {
     font-family: "orbitron", sans-serif;
     color: rgb(0, 0, 0);
+    max-width: 35%;
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -89,7 +106,10 @@ nav {
 #titulo1 {
     display: flex;
     justify-content: center;
+    margin: 20px;
     margin-top: 50px;
+    box-sizing: border-box;
+    max-width: 100%;
     font-family: 'orbitron', sans-serif;
     font-weight: bold;
     font-style: normal;
@@ -97,13 +117,19 @@ nav {
 
 /*titulo da seção de projetos*/
 #titulo2 {
-    display: block;
-    margin-top: 100px;
-    margin-left: 20px;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    width: auto;
+    max-width: 100%;
+    margin-top: 50px;
+    margin: 20px;
+    margin-bottom: 50px;
+    width: 500px;
     color: black;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
+    font-family: 'Silkscreen', sans-serif;
     font-style: normal;
+    font-size: 0.9rem;
     text-decoration: none;
     transition: 0.5s,0.5s;
 }
@@ -116,4 +142,56 @@ nav {
     font-family: 'silkscreen', sans-serif;
     margin-top: 20px;
     margin-left: 50px;
+}
+
+/*estiliza parágrafo*/
+#paragrafo1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 20px;
+    margin-top: 50px;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;   
+}
+
+/*estiliza o footer*/
+footer {
+    display: flex;
+    justify-content: flex;
+    gap: 2px;
+    max-width: 100%;
+    height: auto;
+    background-color: #10108e;
+}
+
+/*informações de endereço no footer*/
+#endereco {
+    font-family: 'orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 20px;
+    color: white;
+}
+
+/*mapa do local em que reside o curso*/
+#mapa {
+    width: 100%;
+    max-width: 33vh;
+    border-radius: 15px;
+    border: none;
+    margin-left: 20px;
+}
+
+.contatos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'orbitron', sans-serif;
+    color: #ffff;
+    font-size: 1rem;
+    margin: 20px;
+
 }
