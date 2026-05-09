@@ -1,4 +1,4 @@
-/*script para a página de docentes*/
+/*script para os cards(docentes)*/
 function toggleCard(card) {
     card.classList.toggle("ativo");
 }
