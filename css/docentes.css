@@ -27,7 +27,7 @@ nav {
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: blue;
+    background-color: #10108e;
 }
 
 /*Estiliza os links*/
@@ -64,48 +64,25 @@ nav {
     margin: 10px;
 }
 
-/*container dos professores*/
+/*container dos cards dos professores*/
 .docentes-conteiner {
-    display: grid;/*define o layout como grid*/
-    grid-template-columns: repeat(2, 1fr);/*define 2 colunas de largura igual*/
-    gap: 30px;/*define o espaçamento entre os itens do grid*/
-    padding: 20px;/*define o espaçamento interno do container*/
+    display: flex;
+    flex-wrap: wrap;/*ao passar do limite estabelecido quebra o elemento para linha de baixo*/
+    gap: 1.5rem; /*gap determina o espaçamento entre os elementos*/
+    margin: 1rem;
 }
 
-/*card do professor*/
+/*container dos professores*/
 .docente {
     display: flex;
-    align-items: center;/*alinha os itens verticalmente ao centro*/
-    gap: 15px;
-    background-color: white;/*define a cor de fundo do card*/
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    background-color: white;
     padding: 15px;
-    border-radius: 10px;/*define os cantos arredondados do card*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/*adiciona uma sombra ao redor do card para dar profundidade*/
-}
-
-/*Ao passar o mouse em cima do card do professor*/
-.docente:hover {
-    transform: translateY(-5px);/*move o card para cima*/
-}
-
-/*estiliza a área de informações do professor, inicialmente escondida*/
-.info {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-/*Quando o card do professor estiver ativo, exibe as informações*/
-.docente.ativo .info {
-    max-height: 200px; /* ajusta conforme o conteúdo */
-}
-
-/*estiliza a imagem do professor*/
-.docente img {
-    width: 100px;
-    height: 100px; 
-    object-fit: cover;/*garante que a imagem preencha o espaço definido sem distorção*/
-    border-radius: 50%;/*define a imagem como circular*/
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
 }
 
 /*estiliza o nome do professor*/
@@ -113,32 +90,57 @@ nav {
     margin: 0px;/*remove a margem padrão do título*/
 }
 
+/*estiliza a imagem do professor*/
+.docente img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;/*garante que a imagem preencha o espaço definido sem distorção*/
+    border-radius: 50%;
+}
+
+/*Ao passar o mouse em cima do card do professor*/
+.docente:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* quando clicar */
+.docente.ativo .descricao {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 16rem;/*define a altura máxima para mostrar a descrição quando o card está ativo*/
+}
+
+ /*foto do professor*/
+#alexandre {
+    width: 120px;
+    height: auto;
+    align-items: center;
+}
+
+.info {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16rem;
+}
+
+/* descrição escondida */
+.descricao {
+    max-height: 0px;/*define a altura máxima como 0 para esconder a descrição quando o card não está ativo*/
+    overflow: hidden;/*esconde o conteúdo da descrição quando o card não está ativo*/
+    transition: max-height 0.4s ease;/*define a transição suave para a altura máxima da descrição quando o card é ativado ou desativado*/
+    font-size: 18px;/*define o tamanho da fonte para a descrição do professor*/
+    color: #555;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: justify;
+    padding-top: 15px;/*define o preenchimento superior para a descrição do professor para criar um espaço entre o nome e a descrição*/
+    line-height: 1.5;/*define o espaçamento entre as linhas da descrição do professor para melhorar a legibilidade*/
+}
+
 /*estiliza a área de atuação do professor*/
 .area {
     color: #ffcc00;
     font-weight: bold;/*define a cor e o peso da fonte para destacar a área de atuação do professor*/
 }
-
-/*estiliza a descrição do professor*/
-.descrição {
-    font-size: 14px;
-    color: #555;
-}
-
-/*Responsividade para telas menores*/
-@media (max-width: 600px) {/*Quando a largura da tela for menor que 600px, aplica as seguintes regras de estilo*/
-    .docentes-conteiner {/*Altera o layout do container dos professores para uma coluna única*/
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
-    }
-   
-.docente {
-    flex-direction: column;/*Altera a direção dos itens do card para coluna em telas menores*/
-    text-align: center;/*Alinha o texto ao centro em telas menores*/
-    }
-}
-
-
-
-
-
-
