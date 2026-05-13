@@ -11,8 +11,17 @@
 
 /*estiliza o corpo*/
 body {
-    background-color: white;
     box-sizing: border-box;
+}
+
+.paralax{
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /*fixa o background*/
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*Estiliza o topo da página*/
@@ -193,5 +202,4 @@ footer {
     color: #ffff;
     font-size: 1rem;
     margin: 20px;
-
 }
