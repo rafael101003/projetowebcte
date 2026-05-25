@@ -2,26 +2,19 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
 }
 
 /*Cria variáveis*/
 :root {
-    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
+    --margem: 0.5rem;
 }
 
-/*estiliza o corpo*/
+/* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
 body {
-    box-sizing: border-box;
-}
-
-.paralax{
-    background-image: url(/img/fundo.png);
-    height: 100%;
-    background-attachment: fixed; /*fixa o background*/
-    /* Centraliza e escala a imagem para cobrir toda a div */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o site tenha NO MÍNIMO a altura da tela cheia */
 }
 
 /*Estiliza o topo da página*/
@@ -34,74 +27,60 @@ nav {
     background-color: #10108e;
 }
 
-/* Estiliza os links */
+/* [O restante do seu código de links, logos e títulos permanece igual...] */
 .linksHeader {
     display: inline-block;
-    position: relative; /* Essencial para o posicionamento da linha */
+    position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
     font-family: arial;
     font-weight: bold;
-    /* Animamos a cor e o transform aqui */
     transition: transform 0.3s ease, color 0.3s ease; 
     transform-origin: center;
 }
-
-/* Criando a linha (invisível por padrão) */
 .linksHeader::before {
     content: "";
     position: absolute;
-    top: -15px; /* Distância que você queria */
+    top: -15px;
     left: 0;
-    width: 0;   /* Começa sem largura para a transição */
+    width: 0;
     height: 5px; 
     background-color: #ffff00;
-    transition: width 0.3s ease; /* Faz a linha "correr" suavemente */
+    transition: width 0.3s ease;
 }
-
-/* Ao passar o mouse no link */
 .linksHeader:hover {
-    color: #ffffff; /* Opcional: muda a cor do texto também */
+    color: #ffffff;
     transform: scale(1.09);
 }
-
-/* Quando o link for hover, a linha (before) cresce */
 .linksHeader:hover::before {
     width: 100%;
 }
-
-/*container da logo*/
 #logoCurso {
     display: flex;
     justify-content: center;
 }
-
-/*logo*/
 .logo {
     display: flex;
     background-image: url(/img/eduvaleLogo.png);
-    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
     max-width: 100%;
-    box-sizing: border-box;
     aspect-ratio: 2/1;
     margin: 10px;
 }
 
-/*estiliza o titulo do tópico*/
-#projetos {
-    font-family: "orbitron", sans-serif;
-    color: rgb(0, 0, 0);
-    max-width: 35%;
-    font-size: 1rem;
+#titulo1 {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
+    font-style: normal;
 }
 
-/*imagem dentro do container*/
 .imagemDiv {
     background-image: linear-gradient(to bottom, black 60%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
@@ -111,95 +90,93 @@ nav {
     border-radius: 5px;
 }
 
-/*estiliza fonte do titulo da da seção*/
-#titulo1 {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    margin-top: 50px;
-    box-sizing: border-box;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
+#saibaMais {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-style: normal;
 }
 
-/*titulo da seção de projetos*/
-#titulo2 {
+/*estilizz lista de destaques*/
+.listaDestaque {
     display: flex;
-    box-sizing: border-box;
     flex-wrap: wrap;
-    width: auto;
+    gap: 20px;
     max-width: 100%;
-    margin-top: 50px;
-    margin: 20px;
-    margin-bottom: 50px;
+    margin-top: 5rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
     width: 500px;
-    color: black;
-    font-family: 'Silkscreen', sans-serif;
+    color: rgb(0, 0, 0);
+    font-family: 'orbitron', sans-serif;
     font-style: normal;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-decoration: none;
-    transition: 0.5s,0.5s;
+    transition: 0.5s;
 }
 
-#titulo2:hover {
-    color: rgb(30, 0, 128);
+.listaDestaque :hover {
+    transition: 0.5s;
+    color: rgb(68, 31, 189);
+    text-decoration:underline;
 }
 
-#lista1 {
-    font-family: 'silkscreen', sans-serif;
-    margin-top: 20px;
-    margin-left: 50px;
-}
-
-/*estiliza parágrafo*/
 #paragrafo1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 20px;
+    padding: 20px;
     margin-top: 50px;
     max-width: 100%;
-    box-sizing: border-box;
     font-family: 'orbitron', sans-serif;
     font-weight: bold;
     font-style: normal;   
 }
 
-/*estiliza o footer*/
+/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
 footer {
     display: flex;
-    justify-content: flex;
-    gap: 2px;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
     background-color: #10108e;
+    padding: 20px;
+    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
 }
 
 /*informações de endereço no footer*/
 #endereco {
     font-family: 'orbitron', sans-serif;
     font-size: 1rem;
-    margin: 20px;
     color: white;
+    margin-bottom: 10px;
 }
 
 /*mapa do local em que reside o curso*/
 #mapa {
+    display: flex;
+    margin-right: 20px;
     width: 100%;
-    max-width: 33vh;
+    max-width: 300px; 
+    height: 20vh;
     border-radius: 15px;
     border: none;
-    margin-left: 20px;
 }
 
 .contatos {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    margin-top: 10px;
     font-family: 'orbitron', sans-serif;
     color: #ffff;
     font-size: 1rem;
-    margin: 20px;
+}
+
+#creditos {
+    display: flex;
+    margin-top: 50px;
+    color: white;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
 }
