@@ -17,6 +17,16 @@ body {
     min-height: 100vh; /* Garante que o site tenha NO MÍNIMO a altura da tela cheia */
 }
 
+.paralax{
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /*fixa o background*/
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /*Estiliza o topo da página*/
 nav {
     display: flex;
@@ -27,34 +37,21 @@ nav {
     background-color: #10108e;
 }
 
-/* [O restante do seu código de links, logos e títulos permanece igual...] */
+/*Estiliza os links*/
 .linksHeader {
-    display: inline-block;
-    position: relative;
+    display: flex;
+    align-items: center;
     margin: 2vh;
     color: white;
     text-decoration: none;
     font-family: arial;
     font-weight: bold;
-    transition: transform 0.3s ease, color 0.3s ease; 
-    transform-origin: center;
+    transition: 0.2s, 0.2s;
 }
-.linksHeader::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 0;
-    height: 5px; 
-    background-color: #ffff00;
-    transition: width 0.3s ease;
-}
+
+/*Ao passar o mouse em cima*/
 .linksHeader:hover {
-    color: #ffffff;
-    transform: scale(1.09);
-}
-.linksHeader:hover::before {
-    width: 100%;
+    transform: scale(1.1);
 }
 
 /*container da logo*/
@@ -65,13 +62,64 @@ nav {
 
 /*logo*/
 .logo {
+    display: flex;
     background-image: url(/img/eduvaleLogo.png);
     background-size: contain;   /* Garante que a imagem apareça inteira */
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
     aspect-ratio: 2/1;
     margin: 10px;
+}
+
+/*imagem dentro do container*/
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+}
+
+/*estiliza o footer*/
+footer {
+    display: flex;
+    justify-content: flex;
+    gap: 2px;
+    max-width: 100%;
+    height: auto;
+    background-color: #10108e;
+}
+
+/*informações de endereço no footer*/
+#endereco {
+    font-family: 'orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 20px;
+    color: white;
+}
+
+/*mapa do local em que reside o curso*/
+#mapa {
+    width: 100%;
+    max-width: 33vh;
+    border-radius: 15px;
+    border: none;
+    margin-left: 20px;
+}
+
+/*Estuliza os contatos*/
+.contatos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'orbitron', sans-serif;
+    color: #ffff;
+    font-size: 1rem;
+    margin: 20px;
 }
 
 /*container dos cards dos professores*/
@@ -95,8 +143,13 @@ nav {
     transition: 0.3s ease;
 }
 
+/*Estiliza o titulo principal*/
 h1 {
-    color: black;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 /*estiliza o nome do professor*/
