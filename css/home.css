@@ -1,0 +1,182 @@
+/*Reset Global*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
+}
+
+/*Cria variáveis*/
+:root {
+    --margem: 0.5rem;
+}
+
+/* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o site tenha NO MÍNIMO a altura da tela cheia */
+}
+
+/*Estiliza o topo da página*/
+nav {
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+    max-width: 100%;
+    height: 6vh;
+    background-color: #10108e;
+}
+
+/* [O restante do seu código de links, logos e títulos permanece igual...] */
+.linksHeader {
+    display: inline-block;
+    position: relative;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    transform-origin: center;
+}
+.linksHeader::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 5px; 
+    background-color: #ffff00;
+    transition: width 0.3s ease;
+}
+.linksHeader:hover {
+    color: #ffffff;
+    transform: scale(1.09);
+}
+.linksHeader:hover::before {
+    width: 100%;
+}
+#logoCurso {
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    display: flex;
+    background-image: url(/img/eduvaleLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    max-width: 100%;
+    aspect-ratio: 2/1;
+    margin: 10px;
+}
+
+#titulo1 {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+}
+
+#saibaMais {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/*estilizz lista de destaques*/
+.listaDestaque {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 100%;
+    margin-top: 5rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 500px;
+    color: rgb(0, 0, 0);
+    font-family: 'orbitron', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.listaDestaque :hover {
+    transition: 0.5s;
+    color: rgb(68, 31, 189);
+    text-decoration:underline;
+}
+
+#paragrafo1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 50px;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;   
+}
+
+/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+footer {
+    display: flex;
+    width: 100%;
+    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
+    background-color: #10108e;
+    padding: 20px;
+    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+}
+
+/*informações de endereço no footer*/
+#endereco {
+    font-family: 'orbitron', sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/*mapa do local em que reside o curso*/
+#mapa {
+    display: flex;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 300px; 
+    height: 20vh;
+    border-radius: 15px;
+    border: none;
+}
+
+.contatos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-family: 'orbitron', sans-serif;
+    color: #ffff;
+    font-size: 1rem;
+}
+
+#creditos {
+    display: flex;
+    margin-top: 50px;
+    color: white;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
