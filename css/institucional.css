@@ -27,6 +27,11 @@ nav {
     background-color: #10108e;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 /* [O restante do seu código de links, logos e títulos permanece igual...] */
 .linksHeader {
     display: inline-block;
@@ -72,6 +77,38 @@ nav {
     width: 300px;
     aspect-ratio: 2/1;
     margin: 10px;
+}
+
+/*estiliza o texto que fala sobre a missão da instituição*/
+#missaoTitulo {
+    font-family: 'orbitron', sans-serif;
+    font-size: 1rem;
+    padding: 20px;  
+}
+
+/*estiliza a lista de missoes da instituição*/
+#missoes {
+    font-family: 'orbitron', sans-serif;
+    font-size: 2rem;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.missoes {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+/*deixa a letra maior a fim de destacar uma letra em especifico*/
+.letraMaior {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffff00;
 }
 
 /* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
