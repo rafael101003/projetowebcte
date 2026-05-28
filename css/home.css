@@ -3,18 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
-}
-
-/*Cria variáveis*/
-:root {
-    --margem: 0.5rem;
+    outline: 2px solid red !important;
 }
 
 /* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
 body {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    overflow: auto !important;
+}
 
+body::-webkit-scrollbar {
+    display: none;  
 }
 
 /*Estiliza o topo da página*/
@@ -28,8 +29,6 @@ nav {
     position: relative;
 }
 
-
-
 /* [O restante do seu código de links, logos e títulos permanece igual...] */
 .linksHeader {
     display: inline-block;
@@ -42,6 +41,7 @@ nav {
     transition: transform 0.3s ease, color 0.3s ease; 
     transform-origin: center;
 }
+
 .linksHeader::before {
     content: "";
     position: absolute;
@@ -52,10 +52,12 @@ nav {
     background-color: #ffff00;
     transition: width 0.3s ease;
 }
+
 .linksHeader:hover {
     color: #ffffff;
     transform: scale(1.09);
 }
+
 .linksHeader:hover::before {
     width: 100%;
 }
@@ -82,66 +84,73 @@ nav {
 
 /* Responsividade: Telas pequenas */
 @media (max-width: 768px) {
-  nav {
-    display: flex;
-    justify-content: flex-start; /* Alinha o botão à esquerda no celular */
-    height: auto;
-  }
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão à esquerda no celular */
+        height: auto;
+    }
 
-  .menu-toggle {
-    display: block; /* Mostra o botão sanduíche */
-    padding: 5px;
-  }
+    .menu-toggle {
+        display: block; /* Mostra o botão sanduíche */
+        padding: 5px;
+    }
 
-  .nav-links {
-    display: flex; /* Mudamos para flex para permitir a animação */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 6vh; /* Fica embaixo da barra azul */
-    left: 0;
-    background-color: #10108e; /* Azul padrão */
-    z-index: 1000;
-    
-    /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px); /* Começa um pouco mais para cima */
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-  }
+    .nav-links {
+        display: flex; /* Mudamos para flex para permitir a animação */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 6vh; /* Fica embaixo da barra azul */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa um pouco mais para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
 
-  /* Quando o menu estiver ativo, ele desliza e aparece */
-  .nav-links.active {
-    align-items: baseline;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Volta para a posição normal */
-  }
+    /* Quando o menu estiver ativo, ele desliza e aparece */
+    .nav-links.active {
+        align-items: baseline;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Volta para a posição normal */
+    }
 
-  /* Ajuste dos links no celular */
-  .linksHeader {
-    margin: 0; /* Remove as margens antigas */
-    padding: 15px 20px; /* Cria uma área de clique maior */
-    width: 100%;
-    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
-  }
+    /* Ajuste dos links no celular */
+    .linksHeader {
+        margin: 0; /* Remove as margens antigas */
+        padding: 15px 20px; /* Cria uma área de clique maior */
+        width: 100%;
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
 
-  /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE --- */
-  .linksHeader:hover {
-    background-color: #0b0b66; /* Um azul bem mais escuro que o original */
-    transform: none; /* Desativa o efeito de aumentar o tamanho no celular */
-  }
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul bem mais escuro que o original */
+        transform: none; /* Desativa o efeito de aumentar o tamanho no celular */
+    }
 
-  /* Remove a linha amarela do topo no celular para combinar com o fundo escuro */
-  .linksHeader::before {
-    display: none;
-  }
+    /* Remove a linha amarela do topo no celular para combinar com o fundo escuro */
+    .linksHeader::before {
+        display: none;
+    }
+
+    /*estiliza lista de destaques*/
+    .listaDestaque {
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    }
 }
 
 #logoCurso {
     display: flex;
     justify-content: center;
 }
+
 .logo {
     display: flex;
     background-image: url(/img/eduvaleLogo.png);
@@ -154,6 +163,7 @@ nav {
     margin: 10px;
 }
 
+/*titulo de boas vindas*/
 #titulo1 {
     display: flex;
     justify-content: center;
@@ -162,6 +172,12 @@ nav {
     font-family: 'orbitron', sans-serif;
     font-weight: bold;
     font-style: normal;
+}
+
+/*deixa a letra maior a fim de destacar uma letra em especifico*/
+.letraMaior {
+    margin-left: 5px;
+    color: #ed9f03;
 }
 
 .imagemDiv {
@@ -188,16 +204,18 @@ nav {
     color: #441fbd;
 }
 
-/*estilizz lista de destaques*/
+/*estiliza lista de destaques*/
 .listaDestaque {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
     max-width: 100%;
+    width: auto;       /* Ocupa a largura total disponível */
+    max-width: 100%;  /* Define o limite para telas grandes (substituindo o antigo 500px fixo) */
     margin-top: 5rem;
     margin-left: 20px;
     margin-bottom: 5rem;
-    width: 500px;
     color: rgb(0, 0, 0);
     font-family: 'orbitron', sans-serif;
     font-style: normal;
