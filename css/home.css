@@ -25,7 +25,10 @@ nav {
     max-width: 100%;
     height: 6vh;
     background-color: #10108e;
+    position: relative;
 }
+
+
 
 /* [O restante do seu código de links, logos e títulos permanece igual...] */
 .linksHeader {
@@ -56,6 +59,80 @@ nav {
 .linksHeader:hover::before {
     width: 100%;
 }
+
+#paralax{
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /*fixa o background*/
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu-toggle {
+  display: none; /* Escondido por padrão em telas grandes */
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsividade: Telas pequenas */
+@media (max-width: 768px) {
+  nav {
+    justify-content: flex-start; /* Alinha o botão à esquerda no celular */
+  }
+
+  .menu-toggle {
+    display: block; /* Mostra o botão sanduíche */
+  }
+
+  .nav-links {
+    display: flex; /* Mudamos para flex para permitir a animação */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 6vh; /* Fica embaixo da barra azul */
+    left: 0;
+    background-color: #10108e; /* Azul padrão */
+    z-index: 1000;
+    
+    /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Começa um pouco mais para cima */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  }
+
+  /* Quando o menu estiver ativo, ele desliza e aparece */
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Volta para a posição normal */
+  }
+
+  /* Ajuste dos links no celular */
+  .linksHeader {
+    margin: 0; /* Remove as margens antigas */
+    padding: 15px 20px; /* Cria uma área de clique maior */
+    width: 100%;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+  }
+
+  /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE --- */
+  .linksHeader:hover {
+    background-color: #0b0b66; /* Um azul bem mais escuro que o original */
+    transform: none; /* Desativa o efeito de aumentar o tamanho no celular */
+  }
+
+  /* Remove a linha amarela do topo no celular para combinar com o fundo escuro */
+  .linksHeader::before {
+    display: none;
+  }
+}
+
 #logoCurso {
     display: flex;
     justify-content: center;
@@ -75,6 +152,7 @@ nav {
 #titulo1 {
     display: flex;
     justify-content: center;
+    padding: 2vh;
     max-width: 100%;
     font-family: 'orbitron', sans-serif;
     font-weight: bold;
@@ -91,10 +169,18 @@ nav {
 }
 
 #saibaMais {
+    font-family: 'orbitron',sans-serif;
+    text-decoration: none;
     margin-left: 20px;
     margin-top: 5px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: #000000;
+    transition: 0.5s, 0.5s;
+}
+
+#saibaMais:hover {
+    color: #441fbd;
 }
 
 /*estilizz lista de destaques*/
@@ -105,19 +191,18 @@ nav {
     max-width: 100%;
     margin-top: 5rem;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5rem;
     width: 500px;
     color: rgb(0, 0, 0);
     font-family: 'orbitron', sans-serif;
     font-style: normal;
     font-size: 1rem;
     text-decoration: none;
-    transition: 0.5s;
 }
 
 .listaDestaque :hover {
-    transition: 0.5s;
-    color: rgb(68, 31, 189);
+    transition: 0.3s 0.3s;
+    color: #441fbd;
     text-decoration:underline;
 }
 
@@ -157,7 +242,7 @@ footer {
     margin-right: 20px;
     width: 100%;
     max-width: 300px; 
-    height: 20vh;
+    height: 40vh;
     border-radius: 15px;
     border: none;
 }
@@ -173,7 +258,7 @@ footer {
 
 #creditos {
     display: flex;
-    margin-top: 50px;
+    margin-top: 20.5vh;
     color: white;
     max-width: 100%;
     font-family: 'orbitron', sans-serif;

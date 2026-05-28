@@ -17,21 +17,27 @@
 
     <!--Conteúdo do topo da página-->
     <header>
-        <nav>
-            <a class="linksHeader" href="curso.html">Disciplinas</a>
-            <a class="linksHeader" href="institucional.html">Institucional</a>
-            <a class="linksHeader" href="servicos.html">Serviços</a>
-            <a class="linksHeader" href="projetos.html">Projetos</a>
-            <a class="linksHeader" href="agenda.html">Agenda</a>
-            <a class="linksHeader" href="docentes.html">Docentes</a>
-            <a class="linksHeader" href="inclusao.html">Inclusão</a>
-            <a class="linksHeader" href="index.html">Home</a>
-        </nav>
+        <nav class="navbar">
 
+            <!-- Botão do Menu Sanduíche -->
+            <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+
+            <section class="nav-links">
+                <a class="linksHeader" href="curso.html">Disciplinas</a>
+                <a class="linksHeader" href="institucional.html">Institucional</a>
+                <a class="linksHeader" href="servicos.html">Serviços</a>
+                <a class="linksHeader" href="projetos.html">Projetos</a>
+                <a class="linksHeader" href="agenda.html">Agenda</a>
+                <a class="linksHeader" href="docentes.html">Docentes</a>
+                <a class="linksHeader" href="inclusao.html">Inclusão</a>
+                <a class="linksHeader" href="index.html">Home</a>                
+            </section>
+
+        </nav>
     </header>
 
     <!--Conteúdo principal da página-->
-    <main>
+    <main id="paralax">
         <!--logo do curso no topo da página-->
         <section id="logoCurso">
             <div class="logo"></div>
@@ -44,8 +50,8 @@
         O CTE dispõe de três salas de aula e sala dos professores distribuídas em um ambiente amplo, moderno e equipado com Wi-Fi otimizado proporcionando conforto, conectividade e suporte tecnológico aos alunos e docentes. </p>
         
         <!--botao redireciona para site da faculdade-->
-        <section id="saibaMais">
-            <a href="https://www.eduvaleavare.com.br/">saiba mais</a>
+        <section>
+            <a href="https://www.eduvaleavare.com.br/" id="saibaMais">saiba mais</a>
         </section>
 
         <section class="listaDestaque">
@@ -85,7 +91,7 @@
         </section>
         
     </footer>
-
+<script src="/js/script.js"></script>
 </body>
 
 </html>
