@@ -94,116 +94,6 @@ footer {
     background-color: #10108e;
 }
 
-/*informações de endereço no footer*/
-#endereco {
-    font-family: 'orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 10px;
-}
-
-/*mapa do local em que reside o curso*/
-#mapa {
-    display: flex;
-    margin-right: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: 20vh;
-    border-radius: 15px;
-    border: none;
-}
-
-/*Estiliza os contatos*/
-.contatos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
-}
-
-/*container dos cards dos professores*/
-.docentes-conteiner {
-    display: flex;
-    flex-wrap: wrap;/*ao passar do limite estabelecido quebra o elemento para linha de baixo*/
-    gap: 1.5rem; /*gap determina o espaçamento entre os elementos*/
-    margin: 2rem;
-}
-
-/*container dos professores*/
-.docente {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    max-width: 500px;
-    background-color: white;
-    padding:20px;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s ease;
-}
-
-/*Estiliza o titulo principal*/
-h1 {
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
-    margin-top: 20px;
-    margin-left: 50px;
-}
-
-/*estiliza o nome do professor*/
-.docente h2 {
-    margin: 0px;/*remove a margem padrão do título*/
-}
-
-/*estiliza a imagem do professor*/
-.docente img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;/*garante que a imagem preencha o espaço definido sem distorção*/
-    border-radius: 50%;
-}
-
-/*Ao passar o mouse em cima do card do professor*/
-.docente:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
-}
-
-/* quando clicar */
-.descricao {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-.docente.ativo .descricao {
-    width: auto;
-    max-height: 300px;
-}
-
-.contatoProf {
-    display: flex;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 16rem;
-}
-
-/*estiliza a área de atuação do professor*/
-.area {
-    color: #ffcc00;
-    font-weight: bold;/*define a cor e o peso da fonte para destacar a área de atuação do professor*/
-}
-
 /* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
 footer {
     display: flex;
@@ -214,12 +104,31 @@ footer {
     margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
 }
 
-#creditos {
-    display: flex;
-    margin-top: 50px;
-    color: white;
-    max-width: 100%;
+
+/*informações de endereço no footer*/
+#endereco {
     font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+    font-size: 1rem;
+    margin: 20px;
+    color: white;
+}
+
+/*mapa do local em que reside o curso*/
+#mapa {
+    width: 100%;
+    max-width: 33vh;
+    border-radius: 15px;
+    border: none;
+    margin-left: 20px;
+}
+
+/*Estuliza os contatos*/
+.contatos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'orbitron', sans-serif;
+    color: #ffff;
+    font-size: 1rem;
+    margin: 20px;
 }
