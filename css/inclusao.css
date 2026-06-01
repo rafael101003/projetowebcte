@@ -139,7 +139,7 @@ margin-bottom: 20px;
 font-size: 1.2rem;
 }
 
-.sobreinclusao, .acoesinclusao, .linksuteis {
+.sobreinclusao, .acoesinclusao, .linksuteis, .projetossociais, .projetos {
 padding: 50px 20px;
 text-align: center;
 }
@@ -167,7 +167,7 @@ margin-top: 30px;
 
 .card {
 background-color: white;
-width: 300px;
+width: 320px;
 padding: 30px;/*espaço entre um conteudo de um elemento e sua borda*/
 border-radius: 16px;/*Arredonda a borda*/
 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);/*Adiciona sombreamento ao elemento*/
@@ -181,4 +181,33 @@ margin-bottom: 15px;/*define uma margem inferior*/
 .card p {
 line-height: 1.5;
 color: #555;
+}
+
+.projetossociais {
+background-color: white;
+}
+
+.projetos {
+display: flex;
+flex-wrap: wrap;/*flex-wrap define como os itens flexíveis são dispostos dentro de um contêiner flexível-Wrap= Os itens quebram para uma nova linha quando não há espaço suficiente*/
+gap: 25px;
+margin-top: 30px;
+}
+
+.projeto {
+width: 320px;
+padding: 25px;
+border-left: 5px solid #ffcc00;
+ border-radius: 10px;
+  text-align: left;
+}
+
+.projeto h3{
+    color: #10108e;
+    margin-bottom: 10px;
+}
+
+.projeto p{
+    color: #555;
+    line-height: 1.6;
 }
