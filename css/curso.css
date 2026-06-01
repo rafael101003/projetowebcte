@@ -1,23 +1,33 @@
-/*Reset Global*/
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
+    /* Movido para o reset global para aplicar em tudo de forma consistente */
+    box-sizing: border-box; 
+    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
 }
 
-/*Cria variáveis*/
-:root {
-    --margem: 0.5rem;
-}
-
-/* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
 body {
+    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o site tenha NO MÍNIMO a altura da tela cheia */
+    max-width: 100%;
+    /* overflow: auto !important; */
 }
 
-/*Estiliza o topo da página*/
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
+body::-webkit-scrollbar {
+    display: none;  
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
 nav {
     display: flex;
     justify-content: end;
@@ -25,20 +35,32 @@ nav {
     max-width: 100%;
     height: 6vh;
     background-color: #10108e;
+    position: relative;
 }
 
-/* [O restante do seu código de links, logos e títulos permanece igual...] */
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes (Desktop) */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+}
+
 .linksHeader {
     display: inline-block;
     position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     transition: transform 0.3s ease, color 0.3s ease; 
     transform-origin: center;
 }
+
+/* Cria a linha decorativa acima dos links */
 .linksHeader::before {
     content: "";
     position: absolute;
@@ -49,29 +71,49 @@ nav {
     background-color: #ffff00;
     transition: width 0.3s ease;
 }
+
 .linksHeader:hover {
     color: #ffffff;
     transform: scale(1.09);
 }
+
 .linksHeader:hover::before {
     width: 100%;
 }
-/*container da logo*/
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+   ========================================================================== */
+
+.paralax {
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Container da logo do curso */
 #logoCurso {
     display: flex;
     justify-content: center;
 }
 
-/*logo*/
+/* Estilização da imagem da logo */
 .logo {
     background-image: url(/img/eduvaleLogo.png);
-    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-size: contain;   /* Garante que a imagem apareça inteira sem cortes */
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
     aspect-ratio: 2/1;
     margin: 10px;
 }
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & DISCIPLINAS
+   ========================================================================== */
 
 .topico {
     display: flex;
@@ -88,7 +130,7 @@ nav {
     margin: var(--margem);
 }
 
-/*está logo á cima da descrição do curso*/
+/* Elemento posicionado logo acima da descrição do curso */
 .ementa {
     font-family: Arial, Helvetica, sans-serif;
     color: grey;
@@ -107,53 +149,48 @@ nav {
     flex-wrap: wrap;
 }
 
-/*imagem dentro do container*/
+/* Imagem interna dos containers */
 .imagemDiv {
     background-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     min-height: 100px;
     height: auto;
     width: 50vh;
     border-radius: 5px;
 }
 
-/*Container da disciplina banco de dados*/
+/* Card da disciplina: Banco de Dados */
 .bancoDeDados {
-    font-family: arial;
+    font-family: Arial, sans-serif;
     min-height: 100px;
     height: auto;
     width: 50vh;
-    padding: 10px; /*Ajusta espaço interno*/
+    padding: 10px;               /* Ajusta o espaço interno do bloco */
     margin: var(--margem);
     border-radius: 15px;
-    word-break: normal; /*Quebra a linha caso a div encolha*/
-    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    word-break: normal;          /* Quebra a linha caso a div encolha */
+    overflow-wrap: break-word;   /* Ajusta o espaçamento de acordo com o tamanho */
     border: 1px solid gray;
     transition: 0.2s;
 }
 
 .bancoDeDados:hover {
-background-color: rgb(229, 229, 229);
+    background-color: rgb(229, 229, 229);
     color: black;
     cursor: pointer;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-
-/*final do container banco de dados*/
-
-
-/*Container da disciplina matemática*/
+/* Card da disciplina: Matemática */
 .matematica {
-    font-family: arial;
+    font-family: Arial, sans-serif;
     min-height: 100px;
     height: auto;
     width: 50vh;
-    padding: 10px; /*Ajusta espaço interno*/
+    padding: 10px;               /* Ajusta o espaço interno do bloco */
     margin: var(--margem);
     border-radius: 15px;
-    word-break: normal; /*Quebra a linha caso a div encolha*/
-    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    word-break: normal;          /* Quebra a linha caso a div encolha */
+    overflow-wrap: break-word;   /* Ajusta o espaçamento de acordo com o tamanho */
     border: 1px solid gray;
     transition: 0.2s;
 }
@@ -165,19 +202,17 @@ background-color: rgb(229, 229, 229);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/*final do container matemática*/
-
-/*Container da disciplina sistemas de informação*/
+/* Card da disciplina: Sistemas de Informação */
 .sistemasDaInformacao {
-    font-family: arial;
+    font-family: Arial, sans-serif;
     min-height: 100px;
     height: auto;
     width: 50vh;
-    padding: 10px; /*Ajusta espaço interno*/
+    padding: 10px;               /* Ajusta o espaço interno do bloco */
     margin: var(--margem);
     border-radius: 15px;
-    word-break: normal; /*Quebra a linha caso a div encolha*/
-    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    word-break: normal;          /* Quebra a linha caso a div encolha */
+    overflow-wrap: break-word;   /* Ajusta o espaçamento de acordo com o tamanho */
     border: 1px solid gray;
     transition: 0.2s;
 }
@@ -189,19 +224,17 @@ background-color: rgb(229, 229, 229);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/*final do container sistemas de informação*/
-
-/*Container da disciplina organização de computadores*/
+/* Card da disciplina: Organização de Computadores */
 .organizacaoDeComputadores {
-    font-family: arial;
+    font-family: Arial, sans-serif;
     min-height: 100px;
     height: auto;
     width: 50vh;
-    padding: 10px; /*Ajusta espaço interno*/
+    padding: 10px;               /* Ajusta o espaço interno do bloco */
     margin: var(--margem);
     border-radius: 15px;
-    word-break: normal; /*Quebra a linha caso a div encolha*/
-    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    word-break: normal;          /* Quebra a linha caso a div encolha */
+    overflow-wrap: break-word;   /* Ajusta o espaçamento de acordo com o tamanho */
     border: 1px solid gray;
     transition: 0.2s;
 }
@@ -213,19 +246,17 @@ background-color: rgb(229, 229, 229);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/*final do container organização de computadores*/
-
-/*Container da disciplina aplicações web*/
+/* Card da disciplina: Aplicações Web */
 .aplicacoesWeb {
-    font-family: arial;
+    font-family: Arial, sans-serif;
     min-height: 100px;
     height: auto;
     width: 50vh;
-    padding: 10px; /*Ajusta espaço interno*/
+    padding: 10px;               /* Ajusta o espaço interno do bloco */
     margin: var(--margem);
     border-radius: 15px;
-    word-break: normal; /*Quebra a linha caso a div encolha*/
-    overflow-wrap: break-word; /*Ajusta o espaçamento de acordo com o tamanho*/
+    word-break: normal;          /* Quebra a linha caso a div encolha */
+    overflow-wrap: break-word;   /* Ajusta o espaçamento de acordo com o tamanho */
     border: 1px solid gray;
     transition: 0.2s;
 }
@@ -237,52 +268,150 @@ background-color: rgb(229, 229, 229);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/*final do container aplicações web*/
+/* ==========================================================================
+   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+   ========================================================================== */
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
 footer {
     display: flex;
+    justify-content: start; /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
     width: 100%;
-    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
     background-color: #10108e;
-    padding: 20px;
-    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
 }
 
-/*informações de endereço no footer*/
+/* Informações de endereço no footer */
 #endereco {
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     color: white;
-    margin-bottom: 10px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    text-align: center;          /* Melhora o espaçamento entre as linhas do texto */
 }
 
-/*mapa do local em que reside o curso*/
+/* Informações e links de contatos */
+.contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Bloco de créditos e autoria dos desenvolvedores */
+#creditos {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: white;
+    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+    line-height: 1.4;
+    margin-top: 1.5rem;
+}
+
+/* Mapa do local em que reside o curso (Para telas grandes) */
 #mapa {
     display: flex;
-    margin-right: 20px;
     width: 100%;
     max-width: 300px; 
-    height: 20vh;
+    height: 25vh;
     border-radius: 15px;
     border: none;
 }
 
-.contatos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
-}
+/* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
 
-#creditos {
-    display: flex;
-    margin-top: 50px;
-    color: white;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
+        height: auto;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
+        padding: 5px;
+    }
+
+    .nav-links {
+        display: flex; /* Mudamos para flex para permitir a animação */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    .nav-links.active {
+        align-items: baseline;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Retorna para a posição original */
+    }
+
+    /* Ajuste de espaçamento dos links de navegação no celular */
+    .linksHeader {
+        margin: 0;          /* Remove as margens estáticas antigas */
+        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        width: 100%;
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
+
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
+        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+    }
+
+    /* Remove a linha decorativa amarela do topo no layout mobile */
+    .linksHeader::before {
+        display: none;
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
 }

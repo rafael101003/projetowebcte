@@ -215,6 +215,8 @@ footer {
     font-size: 1rem;
     color: white;
     line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+    margin-bottom: 5px;
+    text-align: center; 
 }
 
 /* Informações e links de contatos */
