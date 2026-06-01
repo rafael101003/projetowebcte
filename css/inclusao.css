@@ -84,16 +84,6 @@ nav {
     border-radius: 5px;
 }
 
-/*estiliza o footer*/
-footer {
-    display: flex;
-    justify-content: flex;
-    gap: 2px;
-    max-width: 100%;
-    height: auto;
-    background-color: #10108e;
-}
-
 /* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
 footer {
     display: flex;
@@ -131,4 +121,31 @@ footer {
     color: #ffff;
     font-size: 1rem;
     margin: 20px;
+}
+
+.tituloinclusao {
+text-align: center;
+padding: 60px 20px;
+background-color: #10108e;
+color: white;
+}
+
+.tituloinclusao h1{
+font-size: 3rem;
+margin-bottom: 20px;
+}
+
+.tituloinclusao p{
+font-size: 1.2rem;
+}
+
+.sobreinclusao, .acoesinclusao {
+padding: 50px 20px;
+text-align: center;
+}
+
+h2 {
+color: #10108e;
+margin-bottom: 25px;
+font-size: 2rem;
 }

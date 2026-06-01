@@ -84,16 +84,6 @@ nav {
     border-radius: 5px;
 }
 
-/*estiliza o footer*/
-footer {
-    display: flex;
-    justify-content: flex;
-    gap: 2px;
-    max-width: 100%;
-    height: auto;
-    background-color: #10108e;
-}
-
 /*informações de endereço no footer*/
 #endereco {
     font-family: 'orbitron', sans-serif;
