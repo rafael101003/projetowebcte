@@ -139,7 +139,7 @@ margin-bottom: 20px;
 font-size: 1.2rem;
 }
 
-.sobreinclusao, .acoesinclusao, .linksuteis, .projetossociais, .projetos {
+.sobreinclusao, .acoesinclusao, .linksuteis, .projetossociais {
 padding: 50px 20px;
 text-align: center;
 }
@@ -189,6 +189,8 @@ background-color: white;
 
 .projetos {
 display: flex;
+justify-content: center;
+align-items: stretch;
 flex-wrap: wrap;/*flex-wrap define como os itens flexíveis são dispostos dentro de um contêiner flexível-Wrap= Os itens quebram para uma nova linha quando não há espaço suficiente*/
 gap: 25px;
 margin-top: 30px;
@@ -210,4 +212,22 @@ border-left: 5px solid #ffcc00;
 .projeto p{
     color: #555;
     line-height: 1.6;
+}
+
+.links {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 30px;
+} 
+
+.links a {
+background-color: white;
+padding: 15px 25px;
+border-radius: 12px;
+text-decoration: none;
+color: #10108e;
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);;
 }
