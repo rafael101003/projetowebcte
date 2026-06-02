@@ -1,24 +1,33 @@
-/*Reset Global*/
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
-    outline: 2px solid red !important;
+    /* Movido para o reset global para aplicar em tudo de forma consistente */
+    box-sizing: border-box; 
+    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
 }
 
-/* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
 body {
+    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    overflow: auto !important;
+    /* overflow: auto !important; */
 }
 
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
 body::-webkit-scrollbar {
     display: none;  
 }
 
-/*Estiliza o topo da página*/
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
 nav {
     display: flex;
     justify-content: end;
@@ -29,19 +38,29 @@ nav {
     position: relative;
 }
 
-/* [O restante do seu código de links, logos e títulos permanece igual...] */
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes (Desktop) */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+}
+
 .linksHeader {
     display: inline-block;
     position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     transition: transform 0.3s ease, color 0.3s ease; 
     transform-origin: center;
 }
 
+/* Cria a linha decorativa acima dos links */
 .linksHeader::before {
     content: "";
     position: absolute;
@@ -62,88 +81,18 @@ nav {
     width: 100%;
 }
 
-#paralax{
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+   ========================================================================== */
+
+#paralax {
     background-image: url(/img/fundo.png);
     height: 100%;
-    background-attachment: fixed; /*fixa o background*/
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
     /* Centraliza e escala a imagem para cobrir toda a div */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.menu-toggle {
-  display: none; /* Escondido por padrão em telas grandes */
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 20px;
-}
-
-/* Responsividade: Telas pequenas */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        justify-content: flex-start; /* Alinha o botão à esquerda no celular */
-        height: auto;
-    }
-
-    .menu-toggle {
-        display: block; /* Mostra o botão sanduíche */
-        padding: 5px;
-    }
-
-    .nav-links {
-        display: flex; /* Mudamos para flex para permitir a animação */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 6vh; /* Fica embaixo da barra azul */
-        left: 0;
-        background-color: #10108e; /* Azul padrão */
-        z-index: 1000;
-        
-        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px); /* Começa um pouco mais para cima */
-        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    }
-
-    /* Quando o menu estiver ativo, ele desliza e aparece */
-    .nav-links.active {
-        align-items: baseline;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0); /* Volta para a posição normal */
-    }
-
-    /* Ajuste dos links no celular */
-    .linksHeader {
-        margin: 0; /* Remove as margens antigas */
-        padding: 15px 20px; /* Cria uma área de clique maior */
-        width: 100%;
-        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
-    }
-
-    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE --- */
-    .linksHeader:hover {
-        background-color: #0b0b66; /* Um azul bem mais escuro que o original */
-        transform: none; /* Desativa o efeito de aumentar o tamanho no celular */
-    }
-
-    /* Remove a linha amarela do topo no celular para combinar com o fundo escuro */
-    .linksHeader::before {
-        display: none;
-    }
-
-    /*estiliza lista de destaques*/
-    .listaDestaque {
-    margin-top: 2rem;
-    margin-bottom: 2rem; 
-    }
 }
 
 #logoCurso {
@@ -163,18 +112,20 @@ nav {
     margin: 10px;
 }
 
-/*titulo de boas vindas*/
+/* Título de boas-vindas da página */
 #titulo1 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 2vh;
     max-width: 100%;
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     font-style: normal;
+    text-align: center;
 }
 
-/*deixa a letra maior a fim de destacar uma letra em especifico*/
+/* Deixa a letra maior a fim de destacar uma letra específica no título */
 .letraMaior {
     margin-left: 5px;
     color: #ed9f03;
@@ -182,7 +133,6 @@ nav {
 
 .imagemDiv {
     background-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     min-height: 100px;
     height: auto;
     width: 400px;
@@ -190,43 +140,19 @@ nav {
 }
 
 #saibaMais {
-    font-family: 'orbitron',sans-serif;
+    font-family: 'Orbitron', sans-serif;
     text-decoration: none;
     margin-left: 20px;
     margin-top: 5px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #000000;
-    transition: 0.5s, 0.5s;
+    transition: color 0.3s ease;
 }
 
 #saibaMais:hover {
     color: #441fbd;
-}
-
-/*estiliza lista de destaques*/
-.listaDestaque {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 100%;
-    width: auto;       /* Ocupa a largura total disponível */
-    max-width: 100%;  /* Define o limite para telas grandes (substituindo o antigo 500px fixo) */
-    margin-top: 5rem;
-    margin-left: 20px;
-    margin-bottom: 5rem;
-    color: rgb(0, 0, 0);
-    font-family: 'orbitron', sans-serif;
-    font-style: normal;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-.listaDestaque :hover {
-    transition: 0.3s 0.3s;
-    color: #441fbd;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 #paragrafo1 {
@@ -236,55 +162,179 @@ nav {
     padding: 20px;
     margin-top: 50px;
     max-width: 100%;
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     font-style: normal;   
 }
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+/* Estiliza a lista de destaques do curso */
+.listaDestaque {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: auto;       /* Ocupa a largura total disponível */
+    max-width: 100%;   /* Define o limite para telas grandes (substituindo o antigo 500px fixo) */
+    margin-top: 5rem;
+    margin-left: 20px;
+    margin-bottom: 5rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Orbitron', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.listaDestaque :hover {
+    transition: color 0.3s ease 0.3s;
+    color: #441fbd;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+   ========================================================================== */
+
+/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
 footer {
     display: flex;
+    justify-content: start; /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
     width: 100%;
-    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
     background-color: #10108e;
-    padding: 20px;
-    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
 }
 
-/*informações de endereço no footer*/
+/* Informações de endereço no footer */
 #endereco {
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     color: white;
-    margin-bottom: 10px;
+    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+    margin-bottom: 5px;
+    text-align: center; 
 }
 
-/*mapa do local em que reside o curso*/
+/* Informações e links de contatos */
+.contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Bloco de créditos e autoria dos desenvolvedores */
+#creditos {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: white;
+    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+    line-height: 1.4;
+    margin-top: 1.5rem;
+}
+
+/* Mapa do local em que reside o curso (Para telas grandes) */
 #mapa {
     display: flex;
-    margin-right: 20px;
     width: 100%;
     max-width: 300px; 
-    height: 40vh;
+    height: 25vh;
     border-radius: 15px;
     border: none;
 }
 
-.contatos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
-}
+/* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
 
-#creditos {
-    display: flex;
-    margin-top: 20.5vh;
-    color: white;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
+        height: auto;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
+        padding: 5px;
+    }
+
+    .nav-links {
+        display: flex; /* Mudamos para flex para permitir a animação */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    .nav-links.active {
+        align-items: baseline;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Retorna para a posição original */
+    }
+
+    /* Ajuste de espaçamento dos links de navegação no celular */
+    .linksHeader {
+        margin: 0;          /* Remove as margens estáticas antigas */
+        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        width: 100%;
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
+
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
+        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+    }
+
+    /* Remove a linha decorativa amarela do topo no layout mobile */
+    .linksHeader::before {
+        display: none;
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
 }
