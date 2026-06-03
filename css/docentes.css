@@ -83,42 +83,33 @@ nav {
     border-radius: 5px;
 }
 
-/*estiliza o footer*/
-footer {
-    display: flex;
-    justify-content: flex;
-    gap: 2px;
-    max-width: 100%;
-    height: auto;
-    background-color: #10108e;
-}
-
 /*informações de endereço no footer*/
 #endereco {
     font-family: 'orbitron', sans-serif;
     font-size: 1rem;
-    margin: 20px;
     color: white;
+    margin-bottom: 10px;
 }
 
 /*mapa do local em que reside o curso*/
 #mapa {
+    display: flex;
+    margin-right: 20px;
     width: 100%;
-    max-width: 33vh;
+    max-width: 300px; 
+    height: 20vh;
     border-radius: 15px;
     border: none;
-    margin-left: 20px;
 }
 
-/*Estuliza os contatos*/
+/*Estiliza os contatos*/
 .contatos {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    margin-top: 10px;
     font-family: 'orbitron', sans-serif;
     color: #ffff;
     font-size: 1rem;
-    margin: 20px;
 }
 
 /*container dos cards dos professores*/
@@ -210,34 +201,6 @@ footer {
     background-color: #10108e;
     padding: 20px;
     margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
-}
-
-/*informações de endereço no footer*/
-#endereco {
-    font-family: 'orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 10px;
-}
-
-/*mapa do local em que reside o curso*/
-#mapa {
-    display: flex;
-    margin-right: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: 20vh;
-    border-radius: 15px;
-    border: none;
-}
-
-.contatos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
 }
 
 #creditos {
