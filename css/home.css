@@ -34,7 +34,7 @@ nav {
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: #10108e;
+    background-image: linear-gradient(to left, #27006f, #10108e);
     position: relative;
 }
 
@@ -191,64 +191,69 @@ nav {
     text-decoration: underline;
 }
 
-/* ==========================================================================
-   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
-   ========================================================================== */
+    /* ==========================================================================
+    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+    ========================================================================== */
 
-/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
-footer {
-    display: flex;
-    justify-content: start; /* Distribui as colunas igualmente no desktop */
-    align-items: flex-start;
-    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
-    gap: 30px;
-    width: 100%;
-    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
-    background-color: #10108e;
-    padding: 40px 20px;            /* Mais espaço interno para respirar */
-    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
-}
+    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+    footer {
+        display: flex;
+        justify-content: start; /* Distribui as colunas igualmente no desktop */
+        align-items: flex-start;
+        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+        gap: 30px;
+        width: 100%;
+        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+        background-image: linear-gradient(to left, #27006f, #10108e);
+        padding: 40px 20px;            /* Mais espaço interno para respirar */
+        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+    }
 
-/* Informações de endereço no footer */
-#endereco {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
-    margin-bottom: 5px;
-    text-align: center; 
-}
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
 
-/* Informações e links de contatos */
-.contatos {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-}
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
 
-/* Bloco de créditos e autoria dos desenvolvedores */
-#creditos {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    color: white;
-    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
-    line-height: 1.4;
-    margin-top: 1.5rem;
-}
+    .contatos h3 {
+        color: #ed9f03;
+    }
 
-/* Mapa do local em que reside o curso (Para telas grandes) */
-#mapa {
-    display: flex;
-    width: 100%;
-    max-width: 300px; 
-    height: 25vh;
-    border-radius: 15px;
-    border: none;
-}
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
+
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: none;
+    }
 
 /* ==========================================================================
    5. REGRAS DE RESPONSIVIDADE (MOBILE)
@@ -323,6 +328,11 @@ footer {
         align-items: center;       /* Centraliza as seções horizontalmente */
         text-align: center;        /* Garante que os textos fiquem centralizados */
         gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */

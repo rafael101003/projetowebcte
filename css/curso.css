@@ -281,7 +281,7 @@ footer {
     gap: 30px;
     width: 100%;
     min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
-    background-color: #10108e;
+    background-image: linear-gradient(to left, #27006f, #10108e);
     padding: 40px 20px;            /* Mais espaço interno para respirar */
     margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
 }
@@ -291,9 +291,9 @@ footer {
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     color: white;
-    line-height: 1.5;
+    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
     margin-bottom: 5px;
-    text-align: center;          /* Melhora o espaçamento entre as linhas do texto */
+    text-align: center; 
 }
 
 /* Informações e links de contatos */
@@ -305,6 +305,10 @@ footer {
     color: #ffffff;
     font-size: 1rem;
     margin-top: 1.5rem;
+}
+
+.contatos h3 {
+    color: #ed9f03;
 }
 
 /* Bloco de créditos e autoria dos desenvolvedores */
@@ -322,10 +326,12 @@ footer {
     display: flex;
     width: 100%;
     max-width: 300px; 
-    height: 25vh;
+    max-height: 100%;
+    height: auto;
     border-radius: 15px;
     border: none;
 }
+
 
 /* ==========================================================================
    5. REGRAS DE RESPONSIVIDADE (MOBILE)

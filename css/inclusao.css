@@ -187,24 +187,26 @@ text-align: center;
 }
 
 h2 {
-color: #10108e;
-margin-bottom: 25px;
-font-size: 2rem;
+    font-family: 'orbitron', arial;
+    color: #10108e;
+    margin-bottom: 25px;
+    font-size: 2rem;
 }
 
 .sobreinclusao p {
-max-width: 700px;
-margin: auto;
-line-height: 1.6;
-font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    font-size: 18px;
 }
 
 .cards {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 25px;
-margin-top: 30px;
+    font-family: 'orbitron', arial;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .card {
@@ -226,7 +228,8 @@ color: #555;
 }
 
 .projetossociais {
-background-color: white;
+    font-family: 'orbitron', arial;
+    background-color: white;
 }
 
 .projetos {
@@ -279,6 +282,16 @@ color: #10108e;
 font-weight: bold;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 transition: 0.3s ease;
+}
+
+.contatos h3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #ed9f03;
+    margin-top: 1.5rem;
 }
 
 #creditos {
@@ -352,10 +365,13 @@ transition: 0.3s ease;
         display: none;
     }
 
-    /* Reajuste de margens da lista de destaques no mobile */
-    .listaDestaque {
-        margin-top: 2rem;
-        margin-bottom: 2rem; 
+    .projeto {
+        width: 320px;
+        padding: 25px;
+        border-left: 5px solid #ffcc00;
+        border-right: 5px solid #ffcc00;
+        border-radius: 10px;
+        text-align: center;
     }
 
     /* Ajustes estruturais do rodapé para telas pequenas */

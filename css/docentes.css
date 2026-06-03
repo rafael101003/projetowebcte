@@ -83,35 +83,6 @@ nav {
     border-radius: 5px;
 }
 
-/*informações de endereço no footer*/
-#endereco {
-    font-family: 'orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 10px;
-}
-
-/*mapa do local em que reside o curso*/
-#mapa {
-    display: flex;
-    margin-right: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: 20vh;
-    border-radius: 15px;
-    border: none;
-}
-
-/*Estiliza os contatos*/
-.contatos {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
-}
-
 /*container dos cards dos professores*/
 .docentes-conteiner {
     display: flex;
@@ -193,22 +164,161 @@ h1 {
     font-weight: bold;/*define a cor e o peso da fonte para destacar a área de atuação do professor*/
 }
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
-footer {
-    display: flex;
-    width: 100%;
-    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
-    background-color: #10108e;
-    padding: 20px;
-    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+    /* ==========================================================================
+    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+    ========================================================================== */
+
+    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+    footer {
+        display: flex;
+        justify-content: start; /* Distribui as colunas igualmente no desktop */
+        align-items: flex-start;
+        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+        gap: 30px;
+        width: 100%;
+        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+        background-image: linear-gradient(to left, #27006f, #10108e);
+        padding: 40px 20px;            /* Mais espaço interno para respirar */
+        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+    }
+
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
+
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .contatos h3 {
+        color: #ed9f03;
+    }
+
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
+
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+    border-radius: 15px;
+    border: none;
 }
 
-#creditos {
-    display: flex;
-    margin-top: 50px;
-    color: white;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+
+    /* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
+        height: auto;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
+        padding: 5px;
+    }
+
+    .nav-links {
+        display: flex; /* Mudamos para flex para permitir a animação */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    .nav-links.active {
+        align-items: baseline;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Retorna para a posição original */
+    }
+
+    /* Ajuste de espaçamento dos links de navegação no celular */
+    .linksHeader {
+        margin: 0;          /* Remove as margens estáticas antigas */
+        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        width: 100%;
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
+
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
+        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+    }
+
+    /* Remove a linha decorativa amarela do topo no layout mobile */
+    .linksHeader::before {
+        display: none;
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
 }

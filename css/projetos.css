@@ -124,50 +124,66 @@ nav {
 }
 
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+/* ==========================================================================
+   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+   ========================================================================== */
+
+/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
 footer {
     display: flex;
+    justify-content: start; /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
     width: 100%;
-    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
-    background-color: #10108e;
-    padding: 20px;
-    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
 }
 
-/*informações de endereço no footer*/
+/* Informações de endereço no footer */
 #endereco {
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
     color: white;
-    margin-bottom: 10px;
+    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+    margin-bottom: 5px;
+    text-align: center; 
 }
 
-/*mapa do local em que reside o curso*/
-#mapa {
-    display: flex;
-    margin-right: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: 20vh;
-    border-radius: 15px;
-    border: none;
-}
-
+/* Informações e links de contatos */
 .contatos {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
     font-size: 1rem;
+    margin-top: 1.5rem;
 }
 
+.contatos h3 {
+    color: #ed9f03;
+}
+
+/* Bloco de créditos e autoria dos desenvolvedores */
 #creditos {
-    display: flex;
-    margin-top: 50px;
-    color: white;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
-    font-style: normal;
+    color: white;
+    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+    line-height: 1.4;
+    margin-top: 1.5rem;
+}
+
+/* Mapa do local em que reside o curso (Para telas grandes) */
+#mapa {
+    display: flex;
+    width: 100%;
+    max-width: 300px; 
+    max-height: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: none;
 }
