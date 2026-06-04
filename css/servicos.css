@@ -82,7 +82,7 @@ nav {
 }
 
 /* ==========================================================================
-   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+    ELEMENTOS DE MÍDIA
    ========================================================================== */
 
 #paralax {
@@ -162,4 +162,152 @@ footer {
     color: #ffff;
     font-size: 1rem;
     margin: 20px;
+}
+
+/*
+========================================================================================
+ESTILIZAÇÃO DOS ELEMENTOS PRINCIPAIS DA PÁGINA
+========================================================================================
+*/
+
+/* Título principal */
+.tituloservicos {
+text-align: center;
+padding: 60px 20px;
+background-color: #10108e;
+color: white;
+}
+
+.tituloservicos h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+}
+
+.tituloservicos p {
+font-size: 1.2rem;
+}
+
+/* Seções */
+.sobreservicos, .nossosservicos, .comofunciona, .atendimento {
+padding: 50px 20px;
+text-align: center;
+}
+
+/* Títulos */
+h2 {
+color: #10108e;
+margin-bottom: 25px;
+font-size: 2rem;
+}
+
+/* Texto introdutório */
+.sobreservicos p {
+max-width: 700px;
+margin: auto;
+line-height: 1.6;/* Aumenta o espaçamento entre as linhas para melhor legibilidade */
+font-size: 18px;
+}
+
+/* Cards dos serviços */
+.cards {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 25px;
+margin-top: 30px;
+}
+
+.card {
+background-color: white;
+width: 320px;
+padding: 30px;
+border-radius: 16px;
+box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+transition: 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-8px);
+}
+
+.card h3 {
+color: #10108e;
+margin-bottom: 15px;
+}
+
+.card p {
+line-height: 1.5;
+color: #555;
+}
+
+/* Como funciona */
+.passos {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 40px;
+margin-top: 30px;
+}
+
+/*Cada passo do processo */
+.passo {
+width: 250px;
+}
+
+.numero {
+width: 70px;
+height: 70px;
+margin: auto auto 20px auto;
+border-radius: 50%;
+background-color: #10108e;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 1.8rem;
+font-weight: bold;
+transition: 0.3s ease;
+}
+
+.passo:hover .numero {
+transform: scale(1.1);
+}
+
+.passo h3 {
+color: #10108e;
+margin-bottom: 10px;
+}
+
+.passo p {
+color: #555;
+line-height: 1.6;
+}
+
+/* Atendimento */
+.infoatendimento {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 25px;
+margin-top: 30px;
+}
+
+.itematendimento {
+width: 320px;
+padding: 25px;
+background-color: white;
+border-left: 5px solid #ffcc00;
+border-radius: 10px;
+text-align: left;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.itematendimento h3 {
+color: #10108e;
+margin-bottom: 10px;
+}
+
+.itematendimento p {
+color: #555;
+line-height: 1.6;
 }
