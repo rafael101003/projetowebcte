@@ -261,59 +261,76 @@ nav {
 
 /* Responsividade: Configurações aplicadas em telas menores (até 768px) */
 @media (max-width: 768px) {
-    nav {
+nav {
         display: flex;
-        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
-        height: auto;
+        justify-content: flex-start; /* Alinha o botão à esquerda */
+        align-items: center;         /* Centraliza o botão verticalmente */
+        height: 45px;                /* ALTURA FIXA IGUAL PARA TODAS AS PÁGINAS */
+        position: relative;          /* Base para o menu absoluto cair no sítio certo */
+        padding: 0 15px;             /* Afasta o botão ligeiramente da borda do ecrã */
     }
 
     .menu-toggle {
-        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
-        padding: 5px;
+        display: flex !important;    /* Força o botão a aparecer no formato correto */
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;                    /* Espaçamento entre as 3 linhas */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Desenha as 3 linhas com tamanho fixo e controlado */
+    .menu-toggle .bar {
+        display: block;
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s ease;
     }
 
     .nav-links {
-        display: flex; /* Mudamos para flex para permitir a animação */
+        display: flex;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        top: 45px;                   /* Cola exatamente abaixo dos 45px da barra nav */
         left: 0;
-        background-color: #10108e; /* Azul padrão */
+        background-color: #10108e;
         z-index: 1000;
         
-        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        /* Sistema de transição suave */
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transform: translateY(-10px);
         transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     }
 
-    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    /* Ativado via JavaScript */
     .nav-links.active {
-        align-items: baseline;
+        align-items: stretch;
         opacity: 1;
         visibility: visible;
-        transform: translateY(0); /* Retorna para a posição original */
+        transform: translateY(0);
     }
 
-    /* Ajuste de espaçamento dos links de navegação no celular */
     .linksHeader {
-        margin: 0;          /* Remove as margens estáticas antigas */
-        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        margin: 0;
+        padding: 15px 20px;
         width: 100%;
-        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+        text-align: left;
+        transition: background-color 0.3s ease;
     }
 
-    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
     .linksHeader:hover {
-        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
-        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+        background-color: #0b0b66;   /* Feedback visual de clique */
+        transform: none;             /* Remove o zoom do desktop no mobile */
     }
 
-    /* Remove a linha decorativa amarela do topo no layout mobile */
     .linksHeader::before {
-        display: none;
+        display: none;               /* Remove a linha amarela decorativa no mobile */
     }
 
     /* Reajuste de margens da lista de destaques no mobile */

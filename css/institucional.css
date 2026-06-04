@@ -1,65 +1,63 @@
-/*Reset Global*/
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Movido para o reset global para aplicar em tudo */
+    box-sizing: border-box; 
 }
 
-/* 1. CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o site tenha NO MÍNIMO a altura da tela cheia */
+    max-width: 100%;
+    min-height: 100vh; /* A MÁGICA PARTE 1: Força o corpo a ter no mínimo o tamanho da tela inteira */
+    background-color: #ffffff; /* Ou a cor de fundo padrão do seu site */
 }
 
-/*retira o scrollbar da tela mas ainda permite a rolagem*/
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
 body::-webkit-scrollbar {
-    display: none;
+    display: none;  
 }
 
-/*Estiliza o topo da página*/
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
 nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: #10108e;
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    position: relative;
 }
 
-.logo {
-    display: flex;
-    background-image: url(/img/eduvaleLogo.png);
-    background-color: white;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px;
-    max-width: 100%;
-    aspect-ratio: 2/1;
-    margin: 10px;
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes (Desktop) */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-/* [O restante do seu código de links, logos e títulos permanece igual...] */
 .linksHeader {
     display: inline-block;
     position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     transition: transform 0.3s ease, color 0.3s ease; 
     transform-origin: center;
 }
 
+/* Cria a linha decorativa acima dos links */
 .linksHeader::before {
     content: "";
     position: absolute;
@@ -88,70 +86,6 @@ main {
   color: #fff;
   cursor: pointer;
   padding: 20px;
-}
-
-/* Responsividade: Telas pequenas */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        justify-content: flex-start; /* Alinha o botão à esquerda no celular */
-        height: auto;
-    }
-
-    .menu-toggle {
-        display: block; /* Mostra o botão sanduíche */
-        padding: 5px;
-    }
-
-    .nav-links {
-        display: flex; /* Mudamos para flex para permitir a animação */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 6vh; /* Fica embaixo da barra azul */
-        left: 0;
-        background-color: #10108e; /* Azul padrão */
-        z-index: 1000;
-        
-        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px); /* Começa um pouco mais para cima */
-        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    }
-
-    /* Quando o menu estiver ativo, ele desliza e aparece */
-    .nav-links.active {
-        align-items: baseline;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0); /* Volta para a posição normal */
-    }
-
-    /* Ajuste dos links no celular */
-    .linksHeader {
-        margin: 0; /* Remove as margens antigas */
-        padding: 15px 20px; /* Cria uma área de clique maior */
-        width: 100%;
-        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
-    }
-
-    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE --- */
-    .linksHeader:hover {
-        background-color: #0b0b66; /* Um azul bem mais escuro que o original */
-        transform: none; /* Desativa o efeito de aumentar o tamanho no celular */
-    }
-
-    /* Remove a linha amarela do topo no celular para combinar com o fundo escuro */
-    .linksHeader::before {
-        display: none;
-    }
-
-    /*estiliza lista de destaques*/
-    .listaDestaque {
-    margin-top: 2rem;
-    margin-bottom: 2rem; 
-    }
 }
 
 #paralax{
@@ -213,67 +147,177 @@ main {
     color: #ed9f03;
 }
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+    /* ==========================================================================
+    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+    ========================================================================== */
+
+    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+    footer {
+        display: flex;
+        justify-content: start; /* Distribui as colunas igualmente no desktop */
+        align-items: flex-start;
+        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+        gap: 30px;
+        width: 100%;
+        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+        background-image: linear-gradient(to left, #27006f, #10108e);
+        padding: 40px 20px;            /* Mais espaço interno para respirar */
+        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+    }
+
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
+
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .contatos h3 {
+        color: #ed9f03;
+    }
+
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
+
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: none;
+    }
+
 /* ==========================================================================
-   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
    ========================================================================== */
 
-/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
-footer {
-    display: flex;
-    justify-content: start; /* Distribui as colunas igualmente no desktop */
-    align-items: flex-start;
-    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
-    gap: 30px;
-    width: 100%;
-    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
-    background-image: linear-gradient(to left, #27006f, #10108e);
-    padding: 40px 20px;            /* Mais espaço interno para respirar */
-    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
-}
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão à esquerda */
+        align-items: center;         /* Centraliza o botão verticalmente */
+        height: 45px;                /* ALTURA FIXA IGUAL PARA TODAS AS PÁGINAS */
+        position: relative;          /* Base para o menu absoluto cair no sítio certo */
+        padding: 0 15px;             /* Afasta o botão ligeiramente da borda do ecrã */
+    }
 
-/* Informações de endereço no footer */
-#endereco {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
-    margin-bottom: 5px;
-    text-align: center; 
-}
+    .menu-toggle {
+        display: flex !important;    /* Força o botão a aparecer no formato correto */
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;                    /* Espaçamento entre as 3 linhas */
+        padding: 0;
+        margin: 0;
+    }
 
-/* Informações e links de contatos */
-.contatos {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-}
+    /* Desenha as 3 linhas com tamanho fixo e controlado */
+    .menu-toggle .bar {
+        display: block;
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s ease;
+    }
 
-.contatos h3 {
-    color: #ed9f03;
-}
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 45px;                   /* Cola exatamente abaixo dos 45px da barra nav */
+        left: 0;
+        background-color: #10108e;
+        z-index: 1000;
+        
+        /* Sistema de transição suave */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
 
-/* Bloco de créditos e autoria dos desenvolvedores */
-#creditos {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    color: white;
-    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
-    line-height: 1.4;
-    margin-top: 1.5rem;
-}
+    /* Ativado via JavaScript */
+    .nav-links.active {
+        align-items: stretch;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 
-/* Mapa do local em que reside o curso (Para telas grandes) */
-#mapa {
-    display: flex;
-    width: 100%;
-    max-width: 300px; 
-    max-height: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: none;
+    .linksHeader {
+        margin: 0;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: left;
+        transition: background-color 0.3s ease;
+    }
+
+    .linksHeader:hover {
+        background-color: #0b0b66;   /* Feedback visual de clique */
+        transform: none;             /* Remove o zoom do desktop no mobile */
+    }
+
+    .linksHeader::before {
+        display: none;               /* Remove a linha amarela decorativa no mobile */
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
 }

@@ -22,107 +22,100 @@
         <!--Conteúdo do topo da página-->
     <header>
         <nav>
-            <a class="linksHeader" href="curso.html">Disciplinas</a>
-            <a class="linksHeader" href="institucional.html">Institucional</a>
-            <a class="linksHeader" href="servicos.html">Serviços</a>
-            <a class="linksHeader" href="projetos.html">Projetos</a>
-            <a class="linksHeader" href="agenda.html">Agenda</a>
-            <a class="linksHeader" href="docentes.html">Docentes</a>
-            <a class="linksHeader" href="inclusao.html">Inclusão</a>
-            <a class="linksHeader" href="index.html">Home</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a class="linksHeader" href="curso.html">Disciplinas</a>
+                <a class="linksHeader" href="institucional.html">Institucional</a>
+                <a class="linksHeader" href="servicos.html">Serviços</a>
+                <a class="linksHeader" href="projetos.html">Projetos</a>
+                <a class="linksHeader" href="agenda.html">Agenda</a>
+                <a class="linksHeader" href="docentes.html">Docentes</a>
+                <a class="linksHeader" href="inclusao.html">Inclusão</a>
+                <a class="linksHeader" href="index.html">Home</a>
+            </div>
         </nav>
     </header>
 
         <!--Conteúdo principal da página-->
-    <main>
-    <div class="paralax">
+<main>
+        <div id="paralax">
 
-         <!--logo do curso no topo da página-->
             <section id="logoCurso">
                 <div class="logo"></div>
             </section>
 
             <h1>Corpo Docente 1° Termo</h1>
 
-            <!-- Seção para exibir os docentes -->
-        <section class="docentes-conteiner">
+            <section class="docentes-conteiner">
 
-        <div class="docente" onclick="toggleCard(this)">
-
-            <!--imagem do card-->
-            <div>
-                <img src="/img/profAlexandre.jpeg" alt="Professor Luis Alexandre de Oliveira">
-            </div>
-
-            <div class="info">
-                <h2>Luis Alexandre de Oliveira</h2>
-                <p class="area">Fundamentos e Modelagem de Banco de Dados</p>
-
-                <div class="descricao">
-                    <p>Descrição do docente...</p>
+                <div class="docente" onclick="toggleCard(this)">
+                    <div>
+                        <img src="/img/profAlexandre.jpeg" alt="Professor Luis Alexandre de Oliveira">
+                    </div>
+                    <div class="info">
+                        <h2>Luis Alexandre de Oliveira</h2>
+                        <p class="area">Fundamentos e Modelagem de Banco de Dados</p>
+                        <div class="descricao">
+                            <p>Descrição do docente...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="docente" onclick="toggleCard(this)">
-            <img src="/img/profRicardo.jpeg" alt="Professor Ricardo Martins">
-
-            <div class="info">
-                <h2>Ricardo Martins</h2>
-                <p class="area">Matemática Aplicada</p>
-
-                <div class="descricao">
-                    <p>Descrição do docente...</p>
+                <div class="docente" onclick="toggleCard(this)">
+                    <img src="/img/profRicardo.jpeg" alt="Professor Ricardo Martins">
+                    <div class="info">
+                        <h2>Ricardo Martins</h2>
+                        <p class="area">Matemática Aplicada</p>
+                        <div class="descricao">
+                            <p>Descrição do docente...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="docente" onclick="toggleCard(this)">
-            <img src="/img/profFernando.jpeg" alt="Professor Fernando Antunes Ferreira">
-
-            <div class="info">
-                <h2>Fernando Antunes Ferreira</h2>
-                <p class="area">Introdução a Sistemas de Informação</p>
-
-                <div class="descricao">
-                    <p>Descrição do docente...</p>
+                <div class="docente" onclick="toggleCard(this)">
+                    <img src="/img/profFernando.jpeg" alt="Professor Fernando Antunes Ferreira">
+                    <div class="info">
+                        <h2>Fernando Antunes Ferreira</h2>
+                        <p class="area">Introdução a Sistemas de Informação</p>
+                        <div class="descricao">
+                            <p>Descrição do docente...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="docente" onclick="toggleCard(this)">
-            <img src="/img/profJose.jpg" alt="Professor José Rafael Franco">
-
-            <div class="info">
-                <h2>José Rafael Franco</h2>
-                <p class="area">Arquitetura e Organização de Computadores</p>
-
-                <div class="descricao">
-                    <p>Descrição do docente...</p>
+                <div class="docente" onclick="toggleCard(this)">
+                    <img src="/img/profJose.jpg" alt="Professor José Rafael Franco">
+                    <div class="info">
+                        <h2>José Rafael Franco</h2>
+                        <p class="area">Arquitetura e Organização de Computadores</p>
+                        <div class="descricao">
+                            <p>Descrição do docente...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="docente" onclick="toggleCard(this)">
-            <img src="/img/profDiego.jpg" alt="Professor Diego Augusto de Campos Moraes">
-
-            <div class="info">
-                <h2>Diego Augusto de Campos Moraes</h2>
-                <p class="area">Aplicações Web I</p>
-
-                <div class="descricao">
-                    <p>Graduado em Informática para Gestão de Negócios pela FATEC Botucatu, mestre e doutor pela FCA UNESP/Botucatu. 
-                    Destaca-se pela formação no exterior com a realização do CAPES-PDSE em Bari/Itália. 
-                    É docente credenciado no programa de pós-graduação da FCA UNESP/Botucatu e possui experiência no desenvolvimento de sistemas e pesquisas com geoprocessamento. 
-                    
-                    <div class="contatoProf"><p>Contato: tecnologia@eduvaleavare.com.br</p></div>
-
+                <div class="docente" onclick="toggleCard(this)">
+                    <img src="/img/profDiego.jpg" alt="Professor Diego Augusto de Campos Moraes">
+                    <div class="info">
+                        <h2>Diego Augusto de Campos Moraes</h2>
+                        <p class="area">Aplicações Web I</p>
+                        <div class="descricao">
+                            <p>Graduado em Informática para Gestão de Negócios pela FATEC Botucatu, mestre e doutor pela FCA UNESP/Botucatu. 
+                            Destaca-se pela formação no exterior com a realização do CAPES-PDSE em Bari/Itália. 
+                            É docente credenciado no programa de pós-graduação da FCA UNESP/Botucatu e possui experiência no desenvolvimento de sistemas e pesquisas com geoprocessamento.</p> 
+                            <div class="contatoProf"><p>Contato: tecnologia@eduvaleavare.com.br</p></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        </section>
-    </main>
+            </section>
+        </div> 
+        </main>
 
 
     <footer>

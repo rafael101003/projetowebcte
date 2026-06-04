@@ -2,20 +2,22 @@
    1. RESET GLOBAL & CONFIGURAÇÕES BASE
    ========================================================================== */
 
+html, body {
+    height: 100%; /* Garante a base de cálculo da altura */
+}
+
 * {
     margin: 0;
     padding: 0;
-    /* Movido para o reset global para aplicar em tudo de forma consistente */
     box-sizing: border-box; 
-    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
 }
 
 body {
-    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    /* overflow: auto !important; */
+    min-height: 100vh; /* A MÁGICA PARTE 1: Força o corpo a ter no mínimo o tamanho da tela inteira */
+    background-color: #ffffff; /* Ou a cor de fundo padrão do seu site */
 }
 
 /* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
@@ -82,12 +84,14 @@ nav {
 }
 
 /* ==========================================================================
-   3. CONTEÚDO PRINCIPAL & DISCIPLINAS
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
    ========================================================================== */
-.paralax {
+
+#paralax {
     background-image: url(/img/fundo.png);
     height: 100%;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
+    /* Centraliza e escala a imagem para cobrir toda a div */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -99,176 +103,86 @@ nav {
 }
 
 .logo {
+    display: flex;
     background-image: url(/img/eduvaleLogo.png);
-    background-size: contain;   
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
+    max-width: 100%;
     aspect-ratio: 2/1;
     margin: 10px;
 }
 
-.topico {
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-    gap: 10px;
-}
+    /* ==========================================================================
+    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+    ========================================================================== */
 
-#container-disciplinas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    max-width: 100%;
-    align-items: flex-start;
-}
+    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+    footer {
+        display: flex;
+        justify-content: start; /* Distribui as colunas igualmente no desktop */
+        align-items: flex-start;
+        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+        gap: 30px;
+        width: 100%;
+        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+        background-image: linear-gradient(to left, #27006f, #10108e);
+        padding: 40px 20px;            /* Mais espaço interno para respirar */
+        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+    }
 
-/* Base estável para os cards */
-.card-disciplina {
-    font-family: Arial, sans-serif;
-    width: 320px;
-    max-width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    border: 1px solid gray;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-    overflow: hidden; /* Garante o comportamento do slideUp/slideDown */
-}
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
 
-.topo-card {
-    cursor: pointer;
-}
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
 
-.materia {
-    display: flex;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin: 10px 0;
-}
+    .contatos h3 {
+        color: #ed9f03;
+    }
 
-/* Div interna nova que isola o espaçamento do texto */
-.card-inner-padding {
-    padding-top: 15px;
-    margin-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
 
-.ementa {
-    font-family: Arial, Helvetica, sans-serif;
-    color: grey;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-}
-
-.icone-mobile {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-    transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
-}
-
-.card-disciplina:hover {
-    background-color: rgb(229, 229, 229);
-    color: black;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-.conteudo-card p {
-    line-height: 1.5;
-}
-
-/* CONTEÚDO OCULTO POR PADRÃO (Sem padding/margin estáticos para não travar o JS) */
-.card-disciplina .conteudo-card {
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                opacity 0.3s ease, 
-                transform 0.4s ease,
-                visibility 0.4s;
-}
-
-/* ESTADO ATIVO (Engatilhado pelo JavaScript) */
-.card-disciplina.active {
-    background-color: rgb(245, 245, 245);
-}
-
-.card-disciplina.active .conteudo-card {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   4. FOOTER / RODAPÉ (ESTILO DESKTOP)
-   ========================================================================== */
-footer {
-    display: flex;
-    justify-content: start; 
-    align-items: flex-start;
-    flex-wrap: wrap;              
-    gap: 30px;
-    width: 100%;
-    min-height: 15vh;              
-    background-image: linear-gradient(to left, #27006f, #10108e);
-    padding: 40px 20px;            
-    margin-top: auto;              
-}
-
-#endereco {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    color: white;
-    line-height: 1.5;              
-    margin-bottom: 5px;
-    text-align: center; 
-}
-
-.contatos {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;                     
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-}
-
-.contatos h3 {
-    color: #ed9f03;
-}
-
-#creditos {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    color: white;
-    max-width: 100vh;              
-    line-height: 1.4;
-    margin-top: 1.5rem;
-}
-
-#mapa {
-    display: flex;
-    width: 100%;
-    max-width: 300px; 
-    max-height: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: none;
-}
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: none;
+    }
 
 /* ==========================================================================
    5. REGRAS DE RESPONSIVIDADE (MOBILE)
    ========================================================================== */
+
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
 @media (max-width: 768px) {
 nav {
         display: flex;
@@ -342,62 +256,35 @@ nav {
         display: none;               /* Remove a linha amarela decorativa no mobile */
     }
 
+    /* Reajuste de margens da lista de destaques no mobile */
     .listaDestaque {
         margin-top: 2rem;
         margin-bottom: 2rem; 
     }
 
+    /* Ajustes estruturais do rodapé para telas pequenas */
     footer {
-        flex-direction: column;    
-        align-items: center;       
-        text-align: center;        
-        gap: 35px;                 
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
     }
 
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
     #mapa {
         display: none !important;
     }
 
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
     #creditos {
         max-width: 100%;
         width: 100%;
         padding-top: 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2); 
-    }
-
-    #container-disciplinas {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-        max-width: 100%;
-        /* ADICIONE A LINHA ABAIXO: */
-        align-items: flex-start; 
-    }
-
-    .card-disciplina {
-        width: 90%;
-        margin: 5px 0;
-        padding: 12px 15px;
-    }
-
-    .topo-card {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    /* Transforma a imagem grande em ícone redondo no mobile */
-    .icone-mobile {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
-    .materia {
-        font-size: 1.1rem;
-        margin: 0;
-        justify-content: flex-start;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
     }
 }
