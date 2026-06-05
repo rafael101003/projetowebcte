@@ -354,15 +354,22 @@ nav {
         gap: 35px;                 
     }
 
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
     #mapa {
         display: none !important;
     }
 
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
     #creditos {
         max-width: 100%;
         width: 100%;
         padding-top: 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2); 
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
     }
 
     #container-disciplinas {
