@@ -191,23 +191,23 @@ nav {
     text-decoration: underline;
 }
 
-    /* ==========================================================================
-    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
-    ========================================================================== */
+/* ==========================================================================
+4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+========================================================================== */
 
-    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
-    footer {
-        display: flex;
-        justify-content: start; /* Distribui as colunas igualmente no desktop */
-        align-items: flex-start;
-        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
-        gap: 30px;
-        width: 100%;
-        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
-        background-image: linear-gradient(to left, #27006f, #10108e);
-        padding: 40px 20px;            /* Mais espaço interno para respirar */
-        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
-    }
+/* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+footer {
+    display: flex;
+    justify-content: start;        /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
+    width: 100%;
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+}
 
     /* Informações de endereço no footer */
     #endereco {
@@ -349,7 +349,7 @@ nav {
 
     /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
     .contatos {
-                border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */

@@ -124,66 +124,25 @@ nav {
     border-radius: 5px;
 }
 
-/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
-footer {
-    display: flex;
-    width: 100%;
-    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
+.tituloinclusao {
+    text-align: center;
+    padding: 60px 20px;
     background-color: #10108e;
-    padding: 20px;
-    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
-}
-
-/*informações de endereço no footer*/
-#endereco {
-    font-family: 'orbitron', sans-serif;
-    font-size: 1rem;
-    margin: 20px;
     color: white;
 }
 
-/*mapa do local em que reside o curso*/
-#mapa {
-    display: flex;
-    margin-right: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: 20vh;
-    border-radius: 15px;
-    border: none;
-}
-
-/*Estuliza os contatos*/
-.contatos {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-family: 'orbitron', sans-serif;
-    color: #ffff;
-    font-size: 1rem;
-    margin: 20px;
-}
-
-/**/
-.tituloinclusao {
-text-align: center;
-padding: 60px 20px;
-background-color: #10108e;
-color: white;
-}
-
 .tituloinclusao h1{
-font-size: 3rem;
-margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 .tituloinclusao p{
-font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .sobreinclusao, .acoesinclusao, .linksuteis, .projetossociais {
-padding: 50px 20px;
-text-align: center;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 h2 {
@@ -210,21 +169,21 @@ h2 {
 }
 
 .card {
-background-color: white;
-width: 320px;
-padding: 30px;/*espaço entre um conteudo de um elemento e sua borda*/
-border-radius: 16px;/*Arredonda a borda*/
-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);/*Adiciona sombreamento ao elemento*/
+    background-color: white;
+    width: 320px;
+    padding: 30px;/*espaço entre um conteudo de um elemento e sua borda*/
+    border-radius: 16px;/*Arredonda a borda*/
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);/*Adiciona sombreamento ao elemento*/
 }
 
 .card h3 {
-color: #10108e;
-margin-bottom: 15px;/*define uma margem inferior*/
+    color: #10108e;
+    margin-bottom: 15px;    /*define uma margem inferior*/
 }
 
 .card p {
-line-height: 1.5;
-color: #555;
+    line-height: 1.5;
+    color: #555;
 }
 
 .projetossociais {
@@ -233,21 +192,21 @@ color: #555;
 }
 
 .projetos {
-display: flex;
-justify-content: center;
-align-items: stretch;
-flex-wrap: wrap;/*flex-wrap define como os itens flexíveis são dispostos dentro de um contêiner flexível-Wrap= Os itens quebram para uma nova linha quando não há espaço suficiente*/
-gap: 25px;
-margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;    /*flex-wrap define como os itens flexíveis são dispostos dentro de um contêiner flexível-Wrap= Os itens quebram para uma nova linha quando não há espaço suficiente*/
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .projeto {
-width: 320px;
-padding: 25px;
-border-left: 5px solid #ffcc00;
-border-right: 5px solid #ffcc00;
-border-radius: 10px;
-text-align: left;
+    width: 320px;
+    padding: 25px;
+    border-left: 5px solid #ffcc00;
+    border-right: 5px solid #ffcc00;
+    border-radius: 10px;
+    text-align: left;
 }
 
 .projeto h3{
@@ -261,11 +220,11 @@ text-align: left;
 }
 
 .links {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 20px;
-margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .links a:hover {
@@ -274,35 +233,75 @@ margin-top: 30px;
 }
 
 .links a {
-background-color: white;
-padding: 15px 25px;
-border-radius: 12px;
-text-decoration: none;
-color: #10108e;
-font-weight: bold;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-transition: 0.3s ease;
-}
-
-.contatos h3 {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
-    font-size: 1rem;
-    font-family: 'Orbitron', sans-serif;
-    color: #ed9f03;
-    margin-top: 1.5rem;
-}
-
-#creditos {
-    display: flex;
-    margin-top: 50px;
-    color: white;
-    max-width: 100%;
-    font-family: 'orbitron', sans-serif;
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #10108e;
     font-weight: bold;
-    font-style: normal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
 }
+
+/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+footer {
+    display: flex;
+    justify-content: start;        /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
+    width: 100%;
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+}
+
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
+
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .contatos h3 {
+        color: #ed9f03;
+    }
+
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
+
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: none;
+    }
 
 /* ==========================================================================
    5. REGRAS DE RESPONSIVIDADE (MOBILE)
@@ -312,57 +311,74 @@ transition: 0.3s ease;
 @media (max-width: 768px) {
     nav {
         display: flex;
-        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
-        height: auto;
+        justify-content: flex-start; /* Alinha o botão à esquerda */
+        align-items: center;         /* Centraliza o botão verticalmente */
+        height: 45px;                /* ALTURA FIXA IGUAL PARA TODAS AS PÁGINAS */
+        position: relative;          /* Base para o menu absoluto cair no sítio certo */
+        padding: 0 15px;             /* Afasta o botão ligeiramente da borda do ecrã */
     }
 
     .menu-toggle {
-        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
-        padding: 5px;
+        display: flex !important;    /* Força o botão a aparecer no formato correto */
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;                    /* Espaçamento entre as 3 linhas */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Desenha as 3 linhas com tamanho fixo e controlado */
+    .menu-toggle .bar {
+        display: block;
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s ease;
     }
 
     .nav-links {
-        display: flex; /* Mudamos para flex para permitir a animação */
+        display: flex;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        top: 45px;                   /* Cola exatamente abaixo dos 45px da barra nav */
         left: 0;
-        background-color: #10108e; /* Azul padrão */
+        background-color: #10108e;
         z-index: 1000;
         
-        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        /* Sistema de transição suave */
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transform: translateY(-10px);
         transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     }
 
-    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    /* Ativado via JavaScript */
     .nav-links.active {
-        align-items: baseline;
+        align-items: stretch;
         opacity: 1;
         visibility: visible;
-        transform: translateY(0); /* Retorna para a posição original */
+        transform: translateY(0);
     }
 
-    /* Ajuste de espaçamento dos links de navegação no celular */
     .linksHeader {
-        margin: 0;          /* Remove as margens estáticas antigas */
-        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        margin: 0;
+        padding: 15px 20px;
         width: 100%;
-        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+        text-align: left;
+        transition: background-color 0.3s ease;
     }
 
-    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
     .linksHeader:hover {
-        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
-        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+        background-color: #0b0b66;   /* Feedback visual de clique */
+        transform: none;             /* Remove o zoom do desktop no mobile */
     }
 
-    /* Remove a linha decorativa amarela do topo no layout mobile */
     .linksHeader::before {
-        display: none;
+        display: none;               /* Remove a linha amarela decorativa no mobile */
     }
 
     .projeto {
@@ -382,12 +398,16 @@ transition: 0.3s ease;
         gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
     }
 
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
     /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
     #mapa {
         display: none !important;
     }
 
-    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
     #creditos {
         max-width: 100%;
         width: 100%;
