@@ -1,50 +1,117 @@
-/*Reset Global*/
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
+    /* Movido para o reset global para aplicar em tudo de forma consistente */
+    box-sizing: border-box; 
+    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
 }
 
-/*Cria variáveis*/
-:root {
-    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
-}
-
-/*Cria animação*/
-@keyframes pular {
-    0%{transform: scale(1);}
-    100%{transform: scale(1.2);}
-}
-
-/*estiliza o corpo*/
 body {
-    background-color: white;
+    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    /* overflow: auto !important; */
 }
 
-/*Estiliza o topo da página*/
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
+body::-webkit-scrollbar {
+    display: none;  
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
 nav {
     display: flex;
     justify-content: end;
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: blue;
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    position: relative;
 }
 
-/*Estiliza os links*/
-.linksHeader {
+/* Garante o alinhamento correto dos links no desktop */
+.nav-links {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+/* Definições visuais para o botão sanduíche padrão */
+.menu-toggle {
+    display: none; /* Mantém escondido no computador */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    align-self: center;
+    margin-left: 20px; /* Alinha o botão com folga da borda esquerda */
+}
+
+/* Cria fisicamente as 3 linhas brancas com tamanho fixo */
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.linksHeader {
+    display: inline-block;
+    position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-weight: bold;
-    transition: 0.2s, 0.2s;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    transform-origin: center;
 }
 
-/*Ao passar o mouse em cima*/
+/* Cria a linha decorativa acima dos links */
+.linksHeader::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 5px; 
+    background-color: #ffff00;
+    transition: width 0.3s ease;
+}
+
 .linksHeader:hover {
-    transform: scale(1.1);
+    color: #ffffff;
+    transform: scale(1.09);
+}
+
+.linksHeader:hover::before {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+   ========================================================================== */
+
+#paralax {
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*container da logo*/
@@ -55,60 +122,104 @@ nav {
 
 /*logo*/
 .logo {
+    display: flex;
     background-image: url(/img/eduvaleLogo.png);
     background-size: contain;   /* Garante que a imagem apareça inteira */
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
     aspect-ratio: 2/1;
     margin: 10px;
 }
 
-/*container dos professores*/
+/*imagem dentro do container*/
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+}
+
+/*container dos cards dos professores*/
 .docentes-conteiner {
-    display: grid;/*define o layout como grid*/
-    grid-template-columns: repeat(2, 1fr);/*define 2 colunas de largura igual*/
-    gap: 30px;/*define o espaçamento entre os itens do grid*/
-    padding: 20px;/*define o espaçamento interno do container*/
-}
-
-/*card do professor*/
-.docente {
     display: flex;
-    align-items: center;/*alinha os itens verticalmente ao centro*/
-    gap: 15px;
-    background-color: white;/*define a cor de fundo do card*/
-    padding: 15px;
-    border-radius: 10px;/*define os cantos arredondados do card*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/*adiciona uma sombra ao redor do card para dar profundidade*/
+    flex-wrap: wrap; /* ao passar do limite estabelecido quebra o elemento para linha de baixo */
+    gap: 1.5rem;     /* gap determina o espaçamento entre os elementos */
+    margin: 2rem 2rem 0 2rem;
+    align-items: flex-start; 
 }
 
-/*Ao passar o mouse em cima do card do professor*/
-.docente:hover {
-    transform: translateY(-5px);/*move o card para cima*/
+/*container dos professores*/
+.docente {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    min-height: 15vw;
+    height: max-content;
+    margin-bottom: 30px;
 }
 
-.info {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-.docente.ativo .info {
-    max-height: 200px; /* ajusta conforme o conteúdo */
-}
-
-/*estiliza a imagem do professor*/
-.docente img {
-    width: 100px;
-    height: 100px; 
-    object-fit: cover;/*garante que a imagem preencha o espaço definido sem distorção*/
-    border-radius: 50%;/*define a imagem como circular*/
+/*Estiliza o titulo principal*/
+h1 {
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 /*estiliza o nome do professor*/
 .docente h2 {
     margin: 0px;/*remove a margem padrão do título*/
+}
+
+/*estiliza a imagem do professor*/
+.docente img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;/*garante que a imagem preencha o espaço definido sem distorção*/
+    border-radius: 50%;
+}
+
+/*Ao passar o mouse em cima do card do professor*/
+.docente:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* quando clicar */
+.descricao {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.docente.ativo .descricao {
+    width: auto;
+    max-height: 300px;
+}
+
+.contatoProf {
+    display: flex;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16rem;
 }
 
 /*estiliza a área de atuação do professor*/
@@ -117,26 +228,214 @@ nav {
     font-weight: bold;/*define a cor e o peso da fonte para destacar a área de atuação do professor*/
 }
 
-/*estiliza a descrição do professor*/
-.descrição {
-    font-size: 14px;
-    color: #555;
+/* ==========================================================================
+4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+========================================================================== */
+
+footer {
+    display: flex;
+    justify-content: start;        /* Distribui as colunas igualmente no desktop */
+    align-items: flex-start;
+    flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+    gap: 30px;
+    width: 100%;
+    min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    padding: 40px 20px;            /* Mais espaço interno para respirar */
+    margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
 }
 
-/*Responsividade para telas menores*/
-@media (max-width: 600px) {/*Quando a largura da tela for menor que 600px, aplica as seguintes regras de estilo*/
-    .docentes-conteiner {/*Altera o layout do container dos professores para uma coluna única*/
-        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
-    }
-   
-.docente {
-    flex-direction: column;/*Altera a direção dos itens do card para coluna em telas menores*/
-    text-align: center;/*Alinha o texto ao centro em telas menores*/
-    }
+/* Informações de endereço no footer */
+#endereco {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: white;
+    line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+    margin-bottom: 5px;
+    text-align: center; 
+}
+
+/* Informações e links de contatos */
+.contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contatos h3 {
+    color: #ed9f03;
+}
+
+/* Bloco de créditos e autoria dos desenvolvedores */
+#creditos {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: white;
+    max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+    line-height: 1.4;
+    margin-top: 1.5rem;
+}
+
+/* Mapa do local em que reside o curso (Para telas grandes) */
+#mapa {
+    display: flex;
+    width: 100%;
+    max-width: 300px; 
+    max-height: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: none;
 }
 
 
 
+/* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
 
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
+        align-items: center;
+        height: 7vh; /* Um pouco mais de espaço vertical estável para o toque */
+        position: relative; /* Base de ancoragem para o menu absoluto cair no lugar certo */
+    }
 
+    .menu-toggle {
+        display: flex !important; /* Força o botão a aparecer no formato flex correto no mobile */
+        padding: 0;
+    }
 
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 7vh; /* Cola exatamente abaixo da altura do menu fixado */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    .nav-links.active {
+        align-items: stretch; /* Garante que os links ocupem 100% da largura horizontal */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Retorna para a posição original */
+    }
+
+    /* Ajuste de espaçamento dos links de navegação no celular */
+    .linksHeader {
+        margin: 0;          /* Remove as margens estáticas antigas */
+        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        width: 100%;
+        text-align: left;   /* Garante alinhamento textual uniforme à esquerda */
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
+
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
+        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+    }
+
+    /* Remove a linha decorativa amarela do topo no layout mobile */
+    .linksHeader::before {
+        display: none;
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+        padding: 30px 20px;
+        width: 100%;
+        min-height: auto;
+        background-image: linear-gradient(to left, #27006f, #10108e) !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* Ajuste nos contatos separando com uma borda cada maneira de contato */
+    .contatos {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
+    
+    /* ==========================================================================
+       AJUSTES DE RESPONSIVIDADE PARA DOCENTES (MOBILE)
+       ========================================================================== */
+    
+    .docentes-conteiner {
+        flex-direction: column;   /* Empilha os cartões verticalmente */
+        align-items: center;      /* Centraliza os cartões na tela do celular */
+        margin: 1rem 1rem 0 1rem; /* Reduz a margem externa para ganhar espaço lateral */
+        gap: 1rem;                /* Diminui o espaço entre um cartão e outro */
+    }
+
+    /* Ajuste para o container de cards da página de Disciplinas no celular */
+    .disciplinas-container, .conteiner-cards { 
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px !important;
+    }
+
+    /* Força os cards das matérias a ocuparem a largura de tela ideal no mobile */
+    .card, .disciplina {
+        width: 100% !important;
+        max-width: 90vw !important;
+    }
+
+    .docente {
+        width: 100%;              /* Faz o cartão ocupar a largura total disponível */
+        max-width: 100%;          /* Remove o limite de 500px no mobile */
+        padding: 15px;            /* Reduz levemente o preenchimento interno */
+    }
+
+    .info {
+        width: 100%;              /* Permite que a área de texto ocupe toda a largura do cartão */
+        text-align: center;       /* Centraliza o nome e área de atuação no mobile */
+    }
+
+    .docente.ativo .descricao {
+        max-height: 500px;        /* Aumenta o limite de altura máxima, pois textos no mobile quebram mais linhas e ficam mais longos */
+    }
+
+    .contatoProf {
+        justify-content: center;  /* Centraliza as informações de contato no celular */
+        width: 100%;
+    }
+}

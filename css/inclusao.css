@@ -1,0 +1,397 @@
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* Movido para o reset global para aplicar em tudo de forma consistente */
+    box-sizing: border-box; 
+    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
+}
+
+body {
+    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    /* overflow: auto !important; */
+}
+
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
+body::-webkit-scrollbar {
+    display: none;  
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
+nav {
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+    max-width: 100%;
+    height: 6vh;
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    position: relative;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes (Desktop) */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.linksHeader {
+    display: inline-block;
+    position: relative;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    transform-origin: center;
+}
+
+/* Cria a linha decorativa acima dos links */
+.linksHeader::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 5px; 
+    background-color: #ffff00;
+    transition: width 0.3s ease;
+}
+
+.linksHeader:hover {
+    color: #ffffff;
+    transform: scale(1.09);
+}
+
+.linksHeader:hover::before {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+   ========================================================================== */
+
+#paralax {
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*container da logo*/
+#logoCurso {
+    display: flex;
+    justify-content: center;
+}
+
+/*logo*/
+.logo {
+    display: flex;
+    background-image: url(/img/eduvaleLogo.png);
+    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+    aspect-ratio: 2/1;
+    margin: 10px;
+}
+
+/*imagem dentro do container*/
+.imagemDiv {
+    background-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    min-height: 100px;
+    height: auto;
+    width: 400px;
+    border-radius: 5px;
+}
+
+/* 3. CORREÇÃO NO FOOTER (Ajustado de #footer para footer) */
+footer {
+    display: flex;
+    width: 100%;
+    min-height: 15vh; /* Define uma altura responsiva para o rodapé */
+    background-color: #10108e;
+    padding: 20px;
+    margin-top: auto; /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo acima */
+}
+
+/*informações de endereço no footer*/
+#endereco {
+    font-family: 'orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 20px;
+    color: white;
+}
+
+/*mapa do local em que reside o curso*/
+#mapa {
+    display: flex;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 300px; 
+    height: 20vh;
+    border-radius: 15px;
+    border: none;
+}
+
+/*Estuliza os contatos*/
+.contatos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'orbitron', sans-serif;
+    color: #ffff;
+    font-size: 1rem;
+    margin: 20px;
+}
+
+/**/
+.tituloinclusao {
+text-align: center;
+padding: 60px 20px;
+background-color: #10108e;
+color: white;
+}
+
+.tituloinclusao h1{
+font-size: 3rem;
+margin-bottom: 20px;
+}
+
+.tituloinclusao p{
+font-size: 1.2rem;
+}
+
+.sobreinclusao, .acoesinclusao, .linksuteis, .projetossociais {
+padding: 50px 20px;
+text-align: center;
+}
+
+h2 {
+    font-family: 'orbitron', arial;
+    color: #10108e;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.sobreinclusao p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.cards {
+    font-family: 'orbitron', arial;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+background-color: white;
+width: 320px;
+padding: 30px;/*espaço entre um conteudo de um elemento e sua borda*/
+border-radius: 16px;/*Arredonda a borda*/
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);/*Adiciona sombreamento ao elemento*/
+}
+
+.card h3 {
+color: #10108e;
+margin-bottom: 15px;/*define uma margem inferior*/
+}
+
+.card p {
+line-height: 1.5;
+color: #555;
+}
+
+.projetossociais {
+    font-family: 'orbitron', arial;
+    background-color: white;
+}
+
+.projetos {
+display: flex;
+justify-content: center;
+align-items: stretch;
+flex-wrap: wrap;/*flex-wrap define como os itens flexíveis são dispostos dentro de um contêiner flexível-Wrap= Os itens quebram para uma nova linha quando não há espaço suficiente*/
+gap: 25px;
+margin-top: 30px;
+}
+
+.projeto {
+width: 320px;
+padding: 25px;
+border-left: 5px solid #ffcc00;
+border-right: 5px solid #ffcc00;
+border-radius: 10px;
+text-align: left;
+}
+
+.projeto h3{
+    color: #10108e;
+    margin-bottom: 10px;
+}
+
+.projeto p{
+    color: #555;
+    line-height: 1.6;
+}
+
+.links {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 30px;
+}
+
+.links a:hover {
+    transform: translateY(-5px);
+    background-color: #bcbcbc;
+}
+
+.links a {
+background-color: white;
+padding: 15px 25px;
+border-radius: 12px;
+text-decoration: none;
+color: #10108e;
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+transition: 0.3s ease;
+}
+
+.contatos h3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #ed9f03;
+    margin-top: 1.5rem;
+}
+
+#creditos {
+    display: flex;
+    margin-top: 50px;
+    color: white;
+    max-width: 100%;
+    font-family: 'orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão do menu à esquerda no celular */
+        height: auto;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão estilo "sanduíche" no mobile */
+        padding: 5px;
+    }
+
+    .nav-links {
+        display: flex; /* Mudamos para flex para permitir a animação */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 6.5vh; /* Fica posicionado logo embaixo da barra azul */
+        left: 0;
+        background-color: #10108e; /* Azul padrão */
+        z-index: 1000;
+        
+        /* --- EFEITO DE TRANSIÇÃO SUAVE --- */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px); /* Começa levemente deslocado para cima */
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Quando o menu estiver ativo via JavaScript, ele desliza e aparece */
+    .nav-links.active {
+        align-items: baseline;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Retorna para a posição original */
+    }
+
+    /* Ajuste de espaçamento dos links de navegação no celular */
+    .linksHeader {
+        margin: 0;          /* Remove as margens estáticas antigas */
+        padding: 15px 20px; /* Cria uma área de clique/toque maior e mais confortável */
+        width: 100%;
+        transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    }
+
+    /* --- DESTAQUE COM COR MAIS ESCURA AO PASSAR O MOUSE NO MOBILE --- */
+    .linksHeader:hover {
+        background-color: #0b0b66; /* Um azul mais escuro para indicar o clique */
+        transform: none;           /* Desativa o efeito de escala (zoom) no celular */
+    }
+
+    /* Remove a linha decorativa amarela do topo no layout mobile */
+    .linksHeader::before {
+        display: none;
+    }
+
+    .projeto {
+        width: 320px;
+        padding: 25px;
+        border-left: 5px solid #ffcc00;
+        border-right: 5px solid #ffcc00;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
+}

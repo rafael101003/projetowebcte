@@ -1,119 +1,367 @@
-/*Reset Global*/
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
+    /* Movido para o reset global para aplicar em tudo de forma consistente */
+    box-sizing: border-box; 
+    /* outline: 2px solid red !important; */ /* Linha para debug de layout, se necessário */
 }
 
-/*Cria variáveis*/
-:root {
-    --margem: 0.5rem; /*variavel que define a margem, pode ser adicionada em qualquer elemento*/
-}
-
-/*Cria animação*/
-@keyframes pular {
-    0%{transform: scale(1);}
-    100%{transform: scale(1.2);}
-}
-
-/*estiliza o corpo*/
 body {
-    background-color: white;
+    /* CORREÇÃO NO BODY: Transforma o corpo do site em um container flexível vertical */
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    /* overflow: auto !important; */
 }
 
-/*Estiliza o topo da página*/
+/* Oculta a barra de rolagem no WebKit (Chrome/Safari) */
+body::-webkit-scrollbar {
+    display: none;  
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGAÇÃO (NAV)
+   ========================================================================== */
+
+/* Estiliza o topo da página */
 nav {
     display: flex;
     justify-content: end;
     gap: 2px;
     max-width: 100%;
     height: 6vh;
-    background-color: blue;
+    background-image: linear-gradient(to left, #27006f, #10108e);
+    position: relative;
 }
 
-/*Estiliza os links*/
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes (Desktop) */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+}
+
 .linksHeader {
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    position: relative;
     margin: 2vh;
     color: white;
     text-decoration: none;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-weight: bold;
-    transition: 0.2s, 0.2s;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    transform-origin: center;
 }
 
-/*Ao passar o mouse em cima*/
+/* Cria a linha decorativa acima dos links */
+.linksHeader::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 5px; 
+    background-color: #ffff00;
+    transition: width 0.3s ease;
+}
+
 .linksHeader:hover {
-    transform: scale(1.1);
+    color: #ffffff;
+    transform: scale(1.09);
 }
 
-/*container da logo*/
+.linksHeader:hover::before {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL & ELEMENTOS DE MÍDIA
+   ========================================================================== */
+
+#paralax {
+    background-image: url(/img/fundo.png);
+    height: 100%;
+    background-attachment: fixed; /* Fixa o background para criar o efeito parallax */
+    /* Centraliza e escala a imagem para cobrir toda a div */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #logoCurso {
     display: flex;
     justify-content: center;
 }
 
-/*logo*/
 .logo {
+    display: flex;
     background-image: url(/img/eduvaleLogo.png);
-    background-size: contain;   /* Garante que a imagem apareça inteira */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
+    max-width: 100%;
     aspect-ratio: 2/1;
     margin: 10px;
 }
 
-/*estiliza o titulo do tópico*/
-.projeto {
+/* Título de boas-vindas da página */
+#titulo1 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    font-family: "orbitron", sans-serif;
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
+    padding: 2vh;
+    max-width: 100%;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
+    font-style: normal;
+    text-align: center;
 }
 
-/*imagem dentro do container*/
+/* Deixa a letra maior a fim de destacar uma letra específica no título */
+.letraMaior {
+    margin-left: 5px;
+    color: #ed9f03;
+}
+
 .imagemDiv {
     background-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     min-height: 100px;
     height: auto;
     width: 400px;
     border-radius: 5px;
 }
 
-/*estiliza fonte do titulo da da seção*/
-#titulo1 {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
-}
-
-/*titulo da seção de projetos*/
-#titulo2 {
-    display: block;
-    margin-top: 100px;
-    margin-left: 20px;
-    color: black;
-    font-family: 'orbitron', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+#saibaMais {
+    font-family: 'Orbitron', sans-serif;
     text-decoration: none;
-    transition: 0.5s,0.5s;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+    transition: color 0.3s ease;
 }
 
-#titulo2:hover {
-    color: rgb(30, 0, 128);
+#saibaMais:hover {
+    color: #441fbd;
+    text-decoration: underline;
 }
 
-#lista1 {
-    font-family: 'silkscreen', sans-serif;
-    margin-top: 20px;
-    margin-left: 50px;
+#paragrafo1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 50px;
+    max-width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-style: normal;   
+}
+
+/* Estiliza a lista de destaques do curso */
+.listaDestaque {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: auto;       /* Ocupa a largura total disponível */
+    max-width: 100%;   /* Define o limite para telas grandes (substituindo o antigo 500px fixo) */
+    margin-top: 5rem;
+    margin-left: 20px;
+    margin-bottom: 5rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Orbitron', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.listaDestaque :hover {
+    transition: color 0.3s ease 0.3s;
+    color: #441fbd;
+    text-decoration: underline;
+}
+
+    /* ==========================================================================
+    4. FOOTER / RODAPÉ (ESTILO DESKTOP)
+    ========================================================================== */
+
+    /* CORREÇÃO NO FOOTER: Ajustado de #footer para a tag nativa footer */
+    footer {
+        display: flex;
+        justify-content: start; /* Distribui as colunas igualmente no desktop */
+        align-items: flex-start;
+        flex-wrap: wrap;               /* Permite quebra de linha se a tela encolher */
+        gap: 30px;
+        width: 100%;
+        min-height: 15vh;              /* Define uma altura responsiva para o rodapé */
+        background-image: linear-gradient(to left, #27006f, #10108e);
+        padding: 40px 20px;            /* Mais espaço interno para respirar */
+        margin-top: auto;              /* A MÁGICA: Empurra o footer para o final da tela se faltar conteúdo */
+    }
+
+    /* Informações de endereço no footer */
+    #endereco {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        color: white;
+        line-height: 1.5;              /* Melhora o espaçamento entre as linhas do texto */
+        margin-bottom: 5px;
+        text-align: center; 
+    }
+
+    /* Informações e links de contatos */
+    .contatos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;                     /* Espaçamento controlado entre blocos de número */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .contatos h3 {
+        color: #ed9f03;
+    }
+
+    /* Bloco de créditos e autoria dos desenvolvedores */
+    #creditos {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        max-width: 100vh;              /* Limita a largura para o texto não esticar ao infinito */
+        line-height: 1.4;
+        margin-top: 1.5rem;
+    }
+
+    /* Mapa do local em que reside o curso (Para telas grandes) */
+    #mapa {
+        display: flex;
+        width: 100%;
+        max-width: 300px; 
+        max-height: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: none;
+    }
+
+/* ==========================================================================
+   5. REGRAS DE RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+
+/* Responsividade: Configurações aplicadas em telas menores (até 768px) */
+@media (max-width: 768px) {
+nav {
+        display: flex;
+        justify-content: flex-start; /* Alinha o botão à esquerda */
+        align-items: center;         /* Centraliza o botão verticalmente */
+        height: 45px;                /* ALTURA FIXA IGUAL PARA TODAS AS PÁGINAS */
+        position: relative;          /* Base para o menu absoluto cair no sítio certo */
+        padding: 0 15px;             /* Afasta o botão ligeiramente da borda do ecrã */
+    }
+
+    .menu-toggle {
+        display: flex !important;    /* Força o botão a aparecer no formato correto */
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 4px;                    /* Espaçamento entre as 3 linhas */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Desenha as 3 linhas com tamanho fixo e controlado */
+    .menu-toggle .bar {
+        display: block;
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 45px;                   /* Cola exatamente abaixo dos 45px da barra nav */
+        left: 0;
+        background-color: #10108e;
+        z-index: 1000;
+        
+        /* Sistema de transição suave */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    /* Ativado via JavaScript */
+    .nav-links.active {
+        align-items: stretch;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .linksHeader {
+        margin: 0;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: left;
+        transition: background-color 0.3s ease;
+    }
+
+    .linksHeader:hover {
+        background-color: #0b0b66;   /* Feedback visual de clique */
+        transform: none;             /* Remove o zoom do desktop no mobile */
+    }
+
+    .linksHeader::before {
+        display: none;               /* Remove a linha amarela decorativa no mobile */
+    }
+
+    /* Reajuste de margens da lista de destaques no mobile */
+    .listaDestaque {
+        margin-top: 2rem;
+        margin-bottom: 2rem; 
+    }
+
+    /* Ajustes estruturais do rodapé para telas pequenas */
+    footer {
+        flex-direction: column;    /* Alinha os blocos verticalmente (um embaixo do outro) */
+        align-items: center;       /* Centraliza as seções horizontalmente */
+        text-align: center;        /* Garante que os textos fiquem centralizados */
+        gap: 35px;                 /* Cria um espaçamento agradável entre os blocos */
+    }
+
+    /* Ajuste nos contatos separando com uma borda  cada maniera de contato*/
+    .contatos {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* FORÇANDO O MAPA A SUMIR: O !important garante prioridade máxima no mobile */
+    #mapa {
+        display: none !important;
+    }
+
+    /* Reajuste do bloco de créditos para ocupar melhor o espaço mobile */
+    #creditos {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil separadora */
+    }
 }
